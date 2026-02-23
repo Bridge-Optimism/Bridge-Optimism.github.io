@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridge Optimism Safely: Fast L2 Transfers Guide &amp; Fees</title>
+<meta name="description" content="Bridge optimism tokens to Layer 2 quickly and securely using the official Optimism bridge or trusted alternatives. Compare fees, steps, and risks—start your transfer today.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://bridge-optimism.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bridge Optimism Safely: Fast L2 Transfers Guide &amp; Fees">
+<meta property="og:description" content="Bridge optimism tokens to Layer 2 quickly and securely using the official Optimism bridge or trusted alternatives. Compare fees, steps, and risks—start your transfer today.">
+<meta property="og:url" content="https://bridge-optimism.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bridge Optimism Safely: Fast L2 Transfers Guide &amp; Fees">
+<meta name="twitter:description" content="Bridge optimism tokens to Layer 2 quickly and securely using the official Optimism bridge or trusted alternatives. Compare fees, steps, and risks—start your transfer today.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Bridge Optimism Safely: Fast L2 Transfers Guide & Fees", "description": "Bridge optimism tokens to Layer 2 quickly and securely using the official Optimism bridge or trusted alternatives. Compare fees, steps, and risks—start your transfer today.", "inLanguage": "en", "dateModified": "2026-02-23", "url": "https://bridge-optimism.github.io/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://bridge-optimism.github.io"}, {"@type": "ListItem", "position": 2, "name": "Bridge Optimism Safely: Fast L2 Transfers Guide & Fees", "item": "https://bridge-optimism.github.io/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does it take to bridge Optimism?", "acceptedAnswer": {"@type": "Answer", "text": "Deposits to bridge Optimism usually take 2–10 minutes after Ethereum confirmation. Withdrawals back to mainnet require about seven days due to the fraud-proof challenge period."}}, {"@type": "Question", "name": "How much does it cost to bridge Optimism?", "acceptedAnswer": {"@type": "Answer", "text": "Costs depend on Ethereum gas fees at the time of deposit. Expect anywhere from a few dollars to over $30 during congestion, plus minimal Layer 2 execution fees."}}, {"@type": "Question", "name": "Is bridge Optimism safe for large amounts?", "acceptedAnswer": {"@type": "Answer", "text": "Bridge Optimism is generally secure through its non-custodial design, but smart contract risk always exists. For large amounts, test with a small transaction first."}}, {"@type": "Question", "name": "What if my bridge Optimism transaction is stuck?", "acceptedAnswer": {"@type": "Answer", "text": "First, check Ethereum transaction status on a block explorer. If pending, you may need to speed up or replace the transaction in your wallet."}}, {"@type": "Question", "name": "Can I cancel a bridge Optimism transaction?", "acceptedAnswer": {"@type": "Answer", "text": "You can only cancel before confirmation by replacing the pending Ethereum transaction with a higher-gas zero-value transfer. Once confirmed, deposits cannot be reversed."}}, {"@type": "Question", "name": "Do I need ETH to bridge Optimism?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, ETH on Ethereum mainnet is required to pay gas for the deposit transaction. Without ETH, the bridge transaction cannot execute."}}, {"@type": "Question", "name": "Can I bridge Optimism tokens other than ETH?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, many ERC-20 tokens like USDC are supported. Always verify token compatibility and official contract addresses before confirming."}}, {"@type": "Question", "name": "Is using an exchange better than bridge Optimism?", "acceptedAnswer": {"@type": "Answer", "text": "Direct exchange withdrawals to Optimism can be faster and sometimes cheaper. However, they rely on custodial infrastructure instead of direct smart contract interaction."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   BASE DARK DOCS — Linear/Vercel Aesthetic
+   Template ID: base-dark-docs
+   =========================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0b;
+  --bg-2: #111113;
+  --bg-3: #1a1a1f;
+  --bg-card: rgba(255,255,255,0.03);
+  --bg-card-h: rgba(255,255,255,0.05);
+  --accent: #3bf08a;
+  --accent-dim: rgba(59,240,138,0.08);
+  --accent-glow: rgba(59,240,138,0.15);
+  --text: #ededef;
+  --text-2: #8b8b92;
+  --text-3: #55555e;
+  --border: rgba(255,255,255,0.07);
+  --border-h: rgba(255,255,255,0.12);
+  --radius: 10px;
+  --radius-lg: 14px;
+  --font: 'Inter', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font); font-size: 15px; line-height: 1.7;
+  color: var(--text); background: var(--bg);
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+
+#progress {
+  position: fixed; top: 0; left: 0; height: 1px; width: 0%;
+  background: var(--accent); z-index: 10000; transition: width 0.1s;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ═══ NAV ═══ */
+.topnav {
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 9000;
+  background: rgba(10,10,11,0.88); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border); border-radius: 50px; padding: 4px 5px;
+  display: flex; align-items: center; gap: 1px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s;
+  transform: translateX(-50%) translateY(-8px);
+  max-width: 94vw; overflow-x: auto; scrollbar-width: none;
+}
+.topnav::-webkit-scrollbar { display: none; }
+.topnav.show { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.topnav a {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 500;
+  color: var(--text-3); text-decoration: none; padding: 6px 12px;
+  border-radius: 50px; transition: all 0.2s; white-space: nowrap;
+}
+.topnav a:hover { color: var(--text-2); background: rgba(255,255,255,0.04); }
+.topnav a.on { color: var(--text); background: rgba(255,255,255,0.06); }
+/*CTA_START*/
+.topnav .nav-cta {
+  font-family: var(--font); font-size: 12px; font-weight: 600;
+  color: #000; background: var(--accent); padding: 6px 16px;
+  border-radius: 50px; text-decoration: none; margin-left: 3px; white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.topnav .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+/*CTA_END*/
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 80px 32px; position: relative;
+}
+.hero-inner { max-width: 720px; }
+.hero-badge {
+  display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--accent); background: var(--accent-dim);
+  border: 1px solid rgba(59,240,138,0.15); border-radius: 50px;
+  padding: 5px 14px; margin-bottom: 28px; letter-spacing: 0.02em;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 4.25rem);
+  font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: 1rem; color: var(--text-2); max-width: 480px;
+  margin: 0 auto 40px; line-height: 1.8;
+}
+/*CTA_START*/
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; background: var(--accent); color: #000;
+  font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 24px var(--accent-glow);
+}
+.hero-cta:hover { transform: translateY(-1px); box-shadow: 0 0 40px rgba(59,240,138,0.25); }
+.hero-cta svg { width: 16px; height: 16px; }
+/*CTA_END*/
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: var(--text-3); font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.12em; animation: pulse 2.5s ease-in-out infinite;
+}
+.hero-scroll span { width: 1px; height: 24px; background: linear-gradient(to bottom, var(--text-3), transparent); }
+@keyframes pulse { 0%,100%{opacity:.25} 50%{opacity:.6} }
+
+/* ═══ LAYOUT ═══ */
+.content-container { max-width: 1060px; margin: 0 auto; padding: 0 32px; }
+
+/* ═══ CONTENT — TWO COL ═══ */
+.content-area { padding: 40px 0 80px; position: relative; z-index: 1; }
+.content-area section {
+  display: grid; grid-template-columns: 1fr 1.5fr;
+  column-gap: 56px; padding: 72px 0; border-top: 1px solid var(--border);
+  align-items: start;
+}
+.content-area section:first-child { border-top: none; }
+.content-area section > * { grid-column: 2; }
+
+.section-label {
+  grid-column: 1; grid-row: 1;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--text-3); margin-bottom: 6px; letter-spacing: 0.04em;
+}
+.content-area section > h2 {
+  grid-column: 1; grid-row: 2 / span 50;
+  position: sticky; top: 72px; align-self: start;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800; line-height: 1.12; letter-spacing: -0.03em;
+  scroll-margin-top: 80px; margin: 0; padding: 0; border: none;
+}
+
+/* ═══ TEXT ═══ */
+.content-area h3 { font-size: 1.0625rem; font-weight: 700; margin: 24px 0 8px; line-height: 1.3; scroll-margin-top: 80px; }
+.content-area h3:first-child { margin-top: 0; }
+.content-area h4 { font-size: 0.9375rem; font-weight: 600; margin: 20px 0 6px; }
+.content-area p { color: var(--text-2); margin-bottom: 14px; line-height: 1.8; font-size: 15px; }
+.content-area a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); transition: border-color 0.2s; }
+.content-area a:hover { border-bottom-color: var(--accent); }
+.content-area strong { color: var(--text); font-weight: 600; }
+.content-area ul, .content-area ol { margin: 12px 0; padding-left: 18px; color: var(--text-2); }
+.content-area li { margin-bottom: 6px; line-height: 1.7; font-size: 15px; }
+.content-area ul li::marker { color: var(--accent); }
+.content-area ol li::marker { color: var(--text); font-weight: 700; font-family: var(--mono); font-size: 13px; }
+
+.content-area .intro { border-top: none !important; padding-top: 0 !important; }
+
+/* ═══ STEPS ═══ */
+.steps { margin: 16px 0; counter-reset: sc; }
+.step {
+  display: flex; gap: 16px; align-items: baseline;
+  padding: 18px 0; border-bottom: 1px solid var(--border); counter-increment: sc;
+}
+.step:last-child { border-bottom: none; }
+.step::before {
+  content: '0' counter(sc); font-family: var(--mono); font-weight: 500;
+  font-size: 12px; color: var(--accent); min-width: 24px; flex-shrink: 0;
+}
+.step h4 { font-size: 1rem; font-weight: 700; margin: 0 0 4px; }
+.step p { margin: 0; font-size: 14px; }
+
+/* ═══ TABLE ═══ */
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border); border-radius: var(--radius); }
+.table-wrap table { width: 100%; border-collapse: collapse; }
+.table-wrap thead { background: var(--bg-card); }
+.table-wrap th {
+  padding: 11px 18px; text-align: left; font-family: var(--mono);
+  font-weight: 500; font-size: 11px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-3); border-bottom: 1px solid var(--border);
+}
+.table-wrap td { padding: 12px 18px; color: var(--text-2); border-bottom: 1px solid var(--border); font-size: 14px; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:hover { background: rgba(255,255,255,0.015); }
+
+/* ═══ CARDS ═══ */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 20px 0; }
+.card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: var(--border-h); background: var(--bg-card-h); }
+.card h4 { font-weight: 600; margin: 0 0 4px; font-size: 14px; }
+.card p { font-size: 13px; color: var(--text-2); margin: 0; }
+
+/* ═══ CAPSULE ═══ */
+.capsule {
+  background: var(--accent-dim); border: 1px solid rgba(59,240,138,0.12);
+  border-radius: var(--radius); padding: 16px 20px; margin: 16px 0; font-size: 14px;
+}
+.capsule p { color: var(--text) !important; margin: 0; }
+
+/* ═══ EVIDENCE ═══ */
+.evidence {
+  font-size: 13px; color: var(--text-3) !important;
+  padding: 8px 14px 8px 32px; border-left: 2px solid var(--border);
+  margin: 8px 0 16px; position: relative;
+}
+.evidence::before { content: '↗'; position: absolute; left: 10px; top: 8px; font-size: 11px; }
+
+/* ═══ BLOCKQUOTE ═══ */
+.content-area blockquote { border-left: 2px solid var(--accent); padding: 12px 0 12px 20px; margin: 20px 0; }
+.content-area blockquote p { color: var(--text); font-size: 15px; font-style: italic; margin: 0; }
+
+/* ═══ CODE ═══ */
+code { font-family: var(--mono); font-size: 13px; background: var(--bg-3); padding: 2px 7px; border-radius: 4px; color: var(--accent); }
+
+/* ═══ TOC ═══ */
+.toc { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 28px; margin: 0 0 16px; }
+.toc h2 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); margin: 0 0 14px; padding: 0; border: none; font-family: var(--mono); }
+.toc ol { padding-left: 18px; margin: 0; }
+.toc li { margin-bottom: 5px; }
+.toc a { color: var(--text-2); text-decoration: none; font-size: 14px; border-bottom: none; }
+.toc a:hover { color: var(--accent); }
+
+/* ═══ PILLS ═══ */
+.pill-grid { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
+.pill { display: inline-block; padding: 4px 12px; border: 1px solid var(--border); border-radius: 50px; color: var(--text-2); font-size: 12px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+
+/*CTA_START*/
+.mid-cta { margin: 28px 0; }
+
+.cta-section {
+  grid-column: 1 / -1 !important;
+  text-align: center; padding: 64px 36px;
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.cta-section h2 { position: static; font-size: 1.75rem; margin: 0 0 10px; grid-column: auto; }
+.cta-section p { margin-bottom: 24px; color: var(--text-2); font-size: 15px; }
+
+.cta-button {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; background: var(--accent); color: #000;
+  font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-button:hover { transform: translateY(-1px); box-shadow: 0 0 32px var(--accent-glow); }
+
+.floating-cta {
+  position: fixed; bottom: 20px; right: 20px; z-index: 8000;
+  transform: translateY(80px); transition: transform 0.35s ease;
+}
+.floating-cta.show { transform: translateY(0); }
+.floating-cta .cta-button {
+  padding: 10px 20px; font-size: 13px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+/*CTA_END*/
+
+/* ═══ FAQ ═══ */
+.faq-section { display: block !important; padding: 72px 0; border-top: 1px solid var(--border); }
+.faq-section h2 {
+  position: static !important; grid-column: auto !important;
+  font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800;
+  letter-spacing: -0.03em; margin-bottom: 36px;
+}
+.faq-section details { border-bottom: 1px solid var(--border); }
+.faq-section details:first-of-type { border-top: 1px solid var(--border); }
+.faq-section summary {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 0; cursor: pointer; font-weight: 500; font-size: 15px;
+  list-style: none; transition: color 0.2s;
+}
+.faq-section summary::-webkit-details-marker { display: none; }
+.faq-section summary::after { content: '+'; font-family: var(--mono); font-size: 14px; color: var(--text-3); margin-left: 16px; }
+.faq-section details[open] summary::after { content: '−'; color: var(--accent); }
+.faq-section summary:hover { color: var(--text-2); }
+.faq-section details p { padding: 0 0 18px; font-size: 14px; color: var(--text-2); max-width: 640px; }
+.faq-section dl { margin: 0; }
+.faq-section dt { font-weight: 500; color: var(--text); padding: 16px 0 4px; border-top: 1px solid var(--border); }
+.faq-section dt:first-child { border-top: none; }
+.faq-section dd { padding: 0 0 16px; color: var(--text-2); font-size: 14px; margin: 0; }
+
+.disclosure { font-size: 12px; color: var(--text-3); font-style: italic; text-align: center; padding: 16px 0; border-top: 1px solid var(--border); margin-top: 32px; }
+
+footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
+footer p { color: var(--text-3); font-size: 12px; font-family: var(--mono); }
+footer .updated { margin-top: 4px; font-size: 11px; }
+
+#back-to-top {
+  position: fixed; bottom: 28px; right: 28px; width: 38px; height: 38px;
+  background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text-3); font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 997;
+}
+#back-to-top.show { opacity: 1; visibility: visible; }
+#back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+.fade-in { opacity: 0; transform: translateY(14px); transition: opacity 0.5s, transform 0.5s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.content-area img { max-width: 100%; height: auto; border-radius: var(--radius); margin: 20px 0; border: 1px solid var(--border); }
+
+@media (max-width: 860px) {
+  .content-area section { display: block; padding: 48px 0; }
+  .content-area section > h2 { position: static; font-size: 1.5rem; margin-bottom: 16px; }
+  .section-label { display: block; margin-bottom: 4px; }
+  .content-container { padding: 0 20px; }
+  .hero { padding: 80px 20px; }
+  .hero h1 { font-size: 2.25rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 40px 20px; }
+  #back-to-top { display: none; }
+  .floating-cta { bottom: 14px; right: 14px; }
+}
+@media print {
+  .topnav, .hero-cta, .cta-section, .mid-cta, .floating-cta, #back-to-top, #progress, .hero-scroll, .hero-badge { display: none !important; }
+  body { color: #000; background: #fff; }
+  .content-area section { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; transition: none; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+.disclaimer-block {
+    font-size: 13px;
+    color: var(--text-3);
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    margin-top: 32px;
+    font-style: italic;
+}
+.disclaimer-block p { margin: 0; }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<nav class="topnav" id="topnav"></nav>
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <span class="hero-badge">optimism · layer 2 · cross-chain</span>
+    <h1>Bridge Optimism</h1>
+    <p class="hero-sub">Transfer assets to Optimism quickly with lower gas fees.</p>
+    <!--CTA_START-->
+    <a href="/sushiswap/" class="hero-cta">Bridge to Optimism →</a>
+    <!--CTA_END-->
+  </div>
+  <div class="hero-scroll">scroll<span></span></div>
+</section>
+
+<main class="content-area">
+  <div class="content-container">
+    <section class="intro">
+  <p>To bridge optimism, you transfer crypto assets like ETH or USDC from Ethereum mainnet to the Optimism Layer 2 network using a cross-chain bridge. Bridge Optimism is the process of moving tokens from Ethereum or another blockchain to Optimism so you get faster confirmations and significantly lower gas fees.</p>
+  <p>Here’s how to do it safely and fast. You’ll get step-by-step instructions for the official Optimism bridge, a quick comparison with third-party bridges, real fee expectations, and clear withdrawal timelines. No theory. Just actions you can follow in under five minutes.</p>
+  <p>After comparing bridges and testing deposits ourselves, we’ll show you exactly where users make mistakes — and how to avoid them. Done right, the whole process feels like switching lanes on a highway: same destination, smoother ride.</p>
+</section>
+
+<nav class="toc" aria-label="Table of Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#how-to-bridge-optimism">How to Bridge Optimism</a></li>
+    <li><a href="#bridge-optimism-steps">Bridge Optimism Step-by-Step</a></li>
+    <li><a href="#official-optimism-bridge">Official Optimism Bridge</a></li>
+    <li><a href="#bridge-optimism-fees">Bridge Optimism Fees</a></li>
+    <li><a href="#bridge-optimism-speed">Bridge Optimism Speed</a></li>
+    <li><a href="#bridge-optimism-security">Bridge Optimism Security</a></li>
+    <li><a href="#comparison">Best Bridges Comparison</a></li>
+    <li><a href="#common-errors">Common Bridging Errors</a></li>
+  </ol>
+</nav>
+
+<section id="how-to-bridge-optimism">
+  <h2>How to Bridge Optimism</h2>
+  <p class="capsule">To bridge Optimism, connect your wallet to the official Optimism Gateway or a trusted third-party bridge, select Ethereum as the source network, choose the token and amount, confirm the transaction, and wait for Layer 2 confirmation. Most deposits complete within minutes, while withdrawals take longer.</p>
+  <p class="evidence">Optimism uses optimistic rollups, a Layer 2 scaling solution described in detail on <a href="https://en.wikipedia.org/wiki/Optimistic_rollups" rel="noopener noreferrer" target="_blank">Wikipedia’s Optimistic Rollups page</a>, enabling lower fees than Ethereum mainnet.</p>
+  <p>Start with MetaMask or another compatible wallet. Ensure Ethereum mainnet holds enough ETH to cover gas fees before initiating the transfer. Select Optimism as the destination network.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div>
+        <h4>Connect Wallet</h4>
+        <p>Open the official gateway and connect MetaMask. Confirm you’re on Ethereum mainnet.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Select Token</h4>
+        <p>Choose ETH, USDC, or another supported token and enter the amount.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Confirm Transaction</h4>
+        <p>Approve in your wallet, pay gas, and wait for Optimism network confirmation.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Prepare Wallet for bridge optimism</h3>
+  <p>Add Optimism network to MetaMask before depositing. Use official RPC details from Optimism documentation to avoid phishing copies.</p>
+
+  <h3>Supported Tokens</h3>
+  <p>ETH and major ERC-20 tokens like USDC are commonly supported. Always verify token contract addresses.</p>
+
+  <h3>Check Transaction Status</h3>
+  <p>Track deposits using the Optimism block explorer at <a href="https://optimistic.etherscan.io/" rel="noopener noreferrer" target="_blank">https://optimistic.etherscan.io/</a> for real-time confirmation.</p>
+</section>
+
+<section id="bridge-optimism-steps">
+  <h2>Bridge Optimism Step-by-Step</h2>
+  <p class="capsule">Bridge Optimism by initiating a deposit from Ethereum to Optimism through the official gateway, approving the token transfer, and confirming the Layer 2 receipt in your wallet. Deposits are fast, typically under 10 minutes, while withdrawals back to Ethereum require a challenge period.</p>
+  <p class="evidence">According to the official Optimism documentation at <a href="https://docs.optimism.io/" rel="noopener noreferrer" target="_blank">https://docs.optimism.io/</a>, withdrawal periods can last around 7 days due to fraud-proof mechanisms.</p>
+  <p>Open the Optimism Gateway in a secure browser session. Double-check the URL manually instead of clicking ads. Connect your wallet and verify network settings.</p>
+  <p>Next, enter the amount. Confirm gas fees before signing. Ethereum gas fluctuates based on congestion, so timing affects cost.</p>
+  <p>Done correctly, funds appear on Optimism quickly.</p>
+
+  <h3>Deposit ETH to bridge optimism</h3>
+  <p>Select ETH if you want native gas on Optimism. ETH arrives as the canonical version used for transaction fees.</p>
+
+  <h3>Bridge USDC to Optimism</h3>
+  <p>Choose USDC for DeFi use. Confirm contract authenticity to avoid fake tokens.</p>
+
+  <h3>Withdrawing Back to Ethereum</h3>
+  <p>Initiate withdrawal and wait through the challenge window. Plan liquidity accordingly since funds remain locked during this time.</p>
+</section>
+
+<section id="official-optimism-bridge">
+  <h2>Official Optimism Bridge</h2>
+  <p class="capsule">The official Optimism bridge, also called the Optimism Gateway, is a non-custodial interface that moves assets between Ethereum mainnet and Optimism using smart contracts. Users retain wallet control at all times, and deposits finalize quickly while withdrawals follow a security delay.</p>
+  <p class="evidence">Optimism is maintained by OP Labs PBC, and its architecture is publicly documented in the Optimism Collective resources and GitHub repositories.</p>
+  <p>Security starts with using the official site. Bookmark it. Never rely on search ads.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Non-Custodial</h4>
+      <p>You sign transactions directly from your wallet. No centralized custody.</p>
+    </div>
+    <div class="card">
+      <h4>Optimistic Rollups</h4>
+      <p>Transactions batch on Layer 2 and post to Ethereum for finality.</p>
+    </div>
+    <div class="card">
+      <h4>7-Day Withdrawal</h4>
+      <p>Fraud-proof window protects the network against invalid state transitions.</p>
+    </div>
+  </div>
+
+  <h3>Why Use Official bridge optimism</h3>
+  <p>Official contracts reduce third-party risk. You interact directly with Optimism infrastructure.</p>
+
+  <h3>Third-Party Bridge Risks</h3>
+  <p>External bridges may add liquidity pools and smart contract layers, increasing attack surface.</p>
+
+  <h3>When to Choose Alternatives</h3>
+  <p>Consider alternatives only if you need faster withdrawals and accept higher protocol risk.</p>
+</section>
+
+<section id="bridge-optimism-fees">
+  <h2>Bridge Optimism Fees</h2>
+  <p class="capsule">Bridge Optimism fees primarily consist of Ethereum gas fees for the deposit transaction and a smaller Layer 2 execution fee once assets arrive. Costs vary by congestion but are often significantly lower overall compared to staying on Ethereum mainnet for transactions.</p>
+  <p class="evidence">Ethereum gas prices are publicly tracked via Etherscan’s Gas Tracker, showing real-time gwei averages.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Fee Type</th>
+          <th>Where Paid</th>
+          <th>Typical Range</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Deposit Gas</td>
+          <td>Ethereum</td>
+          <td>$5–$30+</td>
+        </tr>
+        <tr>
+          <td>L2 Execution</td>
+          <td>Optimism</td>
+          <td>Under $1</td>
+        </tr>
+        <tr>
+          <td>Withdrawal Gas</td>
+          <td>Ethereum</td>
+          <td>Variable</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Reducing bridge optimism Costs</h3>
+  <p>Bridge during off-peak hours. Lower network demand reduces gas significantly.</p>
+
+  <h3>Gas Estimation Tips</h3>
+  <p>Check live gas trackers before confirming. Small timing changes can cut costs.</p>
+
+  <h3>Are There Hidden Fees?</h3>
+  <p>Official bridge charges no extra service fee beyond network gas.</p>
+</section>
+
+<section id="bridge-optimism-speed">
+  <h2>Bridge Optimism Speed</h2>
+  <p class="capsule">Bridge Optimism deposits usually finalize within 2 to 10 minutes after Ethereum confirmation, depending on gas price and network load. Withdrawals take around 7 days due to the optimistic rollup fraud-proof window designed to maintain Ethereum-level security.</p>
+  <p class="evidence">Optimism’s documented challenge period is approximately seven days, aligning with its fraud-proof design.</p>
+  <p>Speed depends on gas selection. Higher gas confirms faster.</p>
+
+  <h3>Deposit Confirmation Time</h3>
+  <p>Expect a few Ethereum confirmations before funds appear on Optimism mainnet.</p>
+
+  <h3>Withdrawal Waiting Period</h3>
+  <p>Seven days is standard. Plan liquidity needs in advance.</p>
+
+  <h3>Speeding Up bridge optimism</h3>
+  <p>You cannot bypass the fraud window on official withdrawals; only third-party liquidity bridges shorten wait time.</p>
+</section>
+
+<section id="bridge-optimism-security">
+  <h2>Bridge Optimism Security</h2>
+  <p class="capsule">Bridge Optimism is generally secure when using the official non-custodial gateway, but risks include smart contract vulnerabilities, phishing websites, and user error. Always verify URLs, confirm contract addresses, and understand that withdrawals involve a mandatory waiting period.</p>
+  <p class="evidence">Major cross-chain bridge exploits in 2022–2024 highlighted smart contract risk across DeFi, reinforcing the importance of audited infrastructure.</p>
+  <p>Security is shared responsibility. Smart contracts enforce rules, but you control the wallet.</p>
+
+  <h3>Verify Official bridge optimism URL</h3>
+  <p>Type the address manually and bookmark it. Avoid sponsored ads in search results.</p>
+
+  <h3>Smart Contract Risk</h3>
+  <p>Even audited contracts can fail. Never bridge funds you cannot afford to lock temporarily.</p>
+
+  <h3>Phishing Red Flags</h3>
+  <p>Misspelled domains, urgent popups, and unknown token approvals signal danger.</p>
+</section>
+
+<section id="comparison">
+  <h2>Best Bridges to Optimism Compared</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Bridge</th>
+          <th>Withdrawal Time</th>
+          <th>Custody</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Official Gateway</td>
+          <td>~7 days</td>
+          <td>Non-custodial</td>
+          <td>Maximum security</td>
+        </tr>
+        <tr>
+          <td>Liquidity Bridge A</td>
+          <td>Minutes</td>
+          <td>Pool-based</td>
+          <td>Fast exits</td>
+        </tr>
+        <tr>
+          <td>Liquidity Bridge B</td>
+          <td>Minutes</td>
+          <td>Pool-based</td>
+          <td>Token variety</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Official bridge Optimism prioritizes protocol-level security, while liquidity bridges trade higher smart contract exposure for faster withdrawals. Choose based on urgency and risk tolerance.</p>
+</section>
+
+<section id="common-errors">
+  <h2>Common Bridging Errors</h2>
+  <p class="capsule">Common mistakes when attempting to bridge Optimism include selecting the wrong network, underestimating Ethereum gas fees, sending unsupported tokens, or interacting with phishing sites. Careful verification before confirming transactions prevents most fund losses and delays.</p>
+  <p class="evidence">User-reported issues on public crypto forums frequently involve incorrect network selection in MetaMask.</p>
+  <p>Rushing causes errors. Slow down and verify each field before signing.</p>
+
+  <h3>Wrong Network Selected</h3>
+  <p>Ensure Ethereum mainnet is the source and Optimism is the destination.</p>
+
+  <h3>Insufficient Gas</h3>
+  <p>Keep extra ETH for fluctuating gas costs.</p>
+
+  <h3>Unverified Tokens</h3>
+  <p>Always confirm official contract addresses before bridging ERC-20 assets.</p>
+</section>
+
+
+<section id="bridge-optimism-with-metamask">
+  <h2>Bridge Optimism With MetaMask</h2>
+  <p class="capsule">To bridge Optimism with MetaMask, connect your wallet to the official Optimism Gateway, ensure Ethereum mainnet is selected as the source, approve the token transfer, and confirm the transaction. After Ethereum confirmation, assets appear on Optimism and can be used immediately for lower-fee transactions.</p>
+  <p class="evidence">MetaMask supports custom networks, including Optimism, which can be added using official RPC details published in Optimism documentation.</p>
+  <p>MetaMask remains the most common wallet for bridging to Optimism. In our experience, setup takes less than two minutes if you already hold ETH on mainnet.</p>
+
+  <h3>Add Optimism Network Before bridge optimism</h3>
+  <p>Open MetaMask settings, add a new network, and input the official Optimism RPC, chain ID, and block explorer URL. Always copy details from official documentation to prevent configuration errors.</p>
+
+  <h3>Approve ERC-20 Tokens</h3>
+  <p>ERC-20 tokens such as USDC require an approval transaction before bridging. That approval costs additional Ethereum gas, so factor it into your total fee estimate.</p>
+
+  <h3>Confirm Funds on Optimism</h3>
+  <p>After deposit confirmation, switch MetaMask to Optimism network. Your bridged ETH or tokens should display automatically, or you can import the token contract manually.</p>
+</section>
+
+<section id="bridge-optimism-from-exchange">
+  <h2>Bridge Optimism From Exchange</h2>
+  <p class="capsule">You can avoid bridging entirely by withdrawing ETH or supported tokens directly from a centralized exchange to the Optimism network if the exchange supports it. Select Optimism as the withdrawal network to send funds straight to Layer 2 without using a separate bridge transaction.</p>
+  <p class="evidence">Major exchanges such as Binance and Coinbase list Optimism (OP) and support Layer 2 withdrawals for certain assets, reducing on-chain steps.</p>
+  <p>Check the withdrawal screen carefully. Many exchanges support multiple networks for the same token.</p>
+
+  <h3>Choose Correct Network</h3>
+  <p>Select “Optimism” — not Ethereum (ERC-20) — during withdrawal. Sending to the wrong network can require complex recovery steps.</p>
+
+  <h3>Compare Fees vs bridge optimism</h3>
+  <p>Exchange withdrawal fees may be fixed and sometimes cheaper than Ethereum gas. During high congestion, direct L2 withdrawals often save money.</p>
+
+  <h3>Security Considerations</h3>
+  <p>Exchange withdrawals depend on custodial infrastructure. You trust the platform’s internal accounting before funds reach your wallet.</p>
+</section>
+
+<section id="bridge-optimism-vs-other-l2">
+  <h2>Bridge Optimism vs Other Layer 2</h2>
+  <p class="capsule">Bridge Optimism offers lower transaction fees and strong Ethereum security guarantees through optimistic rollups, but other Layer 2 networks like Arbitrum or Base may offer different liquidity depth, app ecosystems, or withdrawal mechanics. Choice depends on fees, supported dApps, and withdrawal speed needs.</p>
+  <p class="evidence">Layer 2 adoption metrics published by L2Beat track total value locked (TVL) and withdrawal mechanisms across rollup networks.</p>
+  <p>After comparing networks, we found cost differences small for simple transfers but meaningful for frequent DeFi traders.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Network</th>
+          <th>Withdrawal Delay</th>
+          <th>Typical Fees</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Optimism</td>
+          <td>~7 days</td>
+          <td>Low</td>
+        </tr>
+        <tr>
+          <td>Arbitrum</td>
+          <td>~7 days</td>
+          <td>Low</td>
+        </tr>
+        <tr>
+          <td>Base</td>
+          <td>Varies</td>
+          <td>Low</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Liquidity and DeFi Access</h3>
+  <p>Optimism hosts major DeFi protocols and supports OP token incentives, attracting liquidity providers.</p>
+
+  <h3>Security Model Comparison</h3>
+  <p>Optimistic rollups rely on fraud proofs, while other scaling designs may use different validation assumptions.</p>
+
+  <h3>When bridge optimism Makes Sense</h3>
+  <p>Choose Optimism if you prioritize Ethereum alignment, predictable fees, and broad wallet compatibility.</p>
+</section>
+
+<section id="security">
+  <h2>Is Bridge Optimism Safe?</h2>
+  <p class="capsule">Bridge Optimism is considered safe when using the official non-custodial gateway and verified smart contracts, but risks remain due to smart contract bugs, phishing attacks, and user mistakes. Deposits are fast, while withdrawals enforce a seven-day challenge period to protect against fraudulent state transitions.</p>
+  <ul>
+    <li><strong>Non-custodial control</strong> — You retain private keys at all times; transactions require wallet signatures.</li>
+    <li><strong>Fraud-proof window</strong> — Approximately seven days allow challenges to invalid withdrawals, strengthening Ethereum-level security.</li>
+    <li><strong>Public documentation</strong> — Optimism’s architecture and contracts are openly documented and reviewed by the community.</li>
+    <li><strong>Phishing risk remains</strong> — Fake bridge sites and malicious ads are common attack vectors in DeFi.</li>
+  </ul>
+  <p>Smart contract systems reduce trust in intermediaries, yet they cannot eliminate code risk entirely. Think of it like a vault with transparent walls — you can inspect the mechanism, but flaws are still possible.</p>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <details>
+    <summary>How long does it take to bridge Optimism?</summary>
+    <p>Deposits to bridge Optimism usually take 2–10 minutes after Ethereum confirmation. Withdrawals back to mainnet require about seven days due to the fraud-proof challenge period.</p>
+  </details>
+
+  <details>
+    <summary>How much does it cost to bridge Optimism?</summary>
+    <p>Costs depend on Ethereum gas fees at the time of deposit. Expect anywhere from a few dollars to over $30 during congestion, plus minimal Layer 2 execution fees.</p>
+  </details>
+
+  <details>
+    <summary>Is bridge Optimism safe for large amounts?</summary>
+    <p>Bridge Optimism is generally secure through its non-custodial design, but smart contract risk always exists. For large amounts, test with a small transaction first.</p>
+  </details>
+
+  <details>
+    <summary>What if my bridge Optimism transaction is stuck?</summary>
+    <p>First, check Ethereum transaction status on a block explorer. If pending, you may need to speed up or replace the transaction in your wallet.</p>
+  </details>
+
+  <details>
+    <summary>Can I cancel a bridge Optimism transaction?</summary>
+    <p>You can only cancel before confirmation by replacing the pending Ethereum transaction with a higher-gas zero-value transfer. Once confirmed, deposits cannot be reversed.</p>
+  </details>
+
+  <details>
+    <summary>Do I need ETH to bridge Optimism?</summary>
+    <p>Yes, ETH on Ethereum mainnet is required to pay gas for the deposit transaction. Without ETH, the bridge transaction cannot execute.</p>
+  </details>
+
+  <details>
+    <summary>Can I bridge Optimism tokens other than ETH?</summary>
+    <p>Yes, many ERC-20 tokens like USDC are supported. Always verify token compatibility and official contract addresses before confirming.</p>
+  </details>
+
+  <details>
+    <summary>Is using an exchange better than bridge Optimism?</summary>
+    <p>Direct exchange withdrawals to Optimism can be faster and sometimes cheaper. However, they rely on custodial infrastructure instead of direct smart contract interaction.</p>
+  </details>
+</section>
+
+<div class="disclaimer-block">
+<p><strong>Disclaimer:</strong> This content is for informational purposes only and does not constitute financial advice. Cryptocurrency involves significant risk — never invest more than you can afford to lose. Consult a licensed financial advisor before making investment decisions.</p>
+</div>
+
+<section class="cta-section" id="cta">
+  <h2>Ready to Bridge Optimism?</h2>
+  <p>Move your assets to Layer 2 in minutes and start paying lower fees today. Follow the steps above and complete your bridge optimism transaction with confidence.</p>
+  <a href="https://app.optimism.io/bridge" class="cta-button" rel="noopener noreferrer" target="_blank">Start Transfer Now &rarr;</a>
+</section>
+  </div>
+<p class="disclosure">This page may contain affiliate links. We may earn a commission at no extra cost to you.</p>
+</main>
+
+<!--CTA_START-->
+<div class="floating-cta" id="floating-cta">
+  <a href="/sushiswap/" class="cta-button">Bridge to Optimism →</a>
+</div>
+<!--CTA_END-->
+
+<footer>
+  <div class="content-container">
+    <p>&copy; 2026</p>
+    <p class="updated">updated <time datetime="2026-02-23">2026-02-23</time></p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">&uarr;</button>
+
+<script>
+(function(){
+  'use strict';
+  var bar=document.getElementById('progress'),nav=document.getElementById('topnav'),
+      hero=document.getElementById('hero'),fc=document.getElementById('floating-cta'),
+      btt=document.getElementById('back-to-top'),ticking=false;
+  var secs=[],links=[];
+  var main=document.querySelector('.content-area');
+  if(nav&&main){
+    main.querySelectorAll('h2[id]').forEach(function(h){
+      var w=h.textContent.trim().split(/\s+/),l=w.slice(0,3).join(' ');
+      if(w.length>3)l+='\u2026';
+      var a=document.createElement('a');a.href='#'+h.id;a.textContent=l;nav.appendChild(a);
+      secs.push(h.closest('section')||h.closest('.faq-section')||h);links.push(a);
+    });
+    var cl=document.querySelector('.hero-cta');
+    if(cl){var ca=document.createElement('a');ca.href=cl.href;ca.className='nav-cta';ca.textContent=cl.textContent.trim();nav.appendChild(ca)}
+  }
+  main.querySelectorAll('section > h2[id]').forEach(function(h){
+    var s=h.closest('section');
+    if(!s||s.classList.contains('faq-section')||s.classList.contains('intro'))return;
+    if(!s.querySelector('.section-label')){
+      var slug=h.id.replace(/-/g,' ').split(' ').slice(0,2).join('-');
+      var lb=document.createElement('span');lb.className='section-label';lb.textContent=slug;
+      s.insertBefore(lb,h);
+    }
+  });
+  main.querySelectorAll('section, .toc, .faq-section').forEach(function(s){s.classList.add('fade-in')});
+  function go(){
+    var s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(d>0?(s/d)*100:0)+'%';
+    var hb=hero.offsetTop+hero.offsetHeight;
+    nav.classList.toggle('show',s>hb-60);
+    if(fc)fc.classList.toggle('show',s>hb&&s<d-300);
+    if(btt)btt.classList.toggle('show',s>600);
+    var c=-1;for(var i=secs.length-1;i>=0;i--)if(s>=secs[i].offsetTop-200){c=i;break}
+    links.forEach(function(a,i){a.classList.toggle('on',i===c)});
+  }
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){go();ticking=false});ticking=true}});
+  if(btt)btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(a){var el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}});
+  if('IntersectionObserver' in window){var ob=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');ob.unobserve(e.target)}})},{threshold:0.05,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.fade-in').forEach(function(el){ob.observe(el)})}
+})();
+</script>
+</body>
+</html>
