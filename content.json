@@ -1,0 +1,87 @@
+{
+  "key_facts": {
+    "Category": "Ethereum Layer 2 bridge",
+    "Network": "OP Mainnet",
+    "Token": "OP",
+    "Settlement": "Ethereum",
+    "Withdrawal period": "7 days on the Standard Bridge"
+  },
+  "intent": [
+    {
+      "q": "Optimism bridge fees and speed",
+      "a": "Optimism bridge costs depend on Ethereum gas, OP Mainnet gas, and token approval transactions. Deposits from Ethereum to OP Mainnet through the Standard Bridge are usually completed in minutes, while withdrawals back to Ethereum take longer because of the challenge-period design. The official documentation states that Ethereum-to-OP Mainnet Standard Bridge transfers usually complete within 1-3 minutes and OP Mainnet-to-Ethereum withdrawals complete in 7 days. For the canonical route, use the <a href=\"https://app.optimism.io/bridge\">OP Mainnet Gateway</a> and compare wallet estimates before confirming."
+    },
+    {
+      "q": "Optimism withdrawal 7 days explained",
+      "a": "The 7-day Optimism withdrawal period applies when exiting OP Mainnet to Ethereum through the Standard Bridge. It exists because OP Mainnet is an optimistic rollup, and withdrawals must pass through a challenge window before funds can be finalized on Ethereum. This is normal behavior, not a stuck transfer. Users who need faster exits often compare third-party liquidity bridges, but those routes introduce different liquidity, fee, and token-representation assumptions. For large or canonical withdrawals, the Standard Bridge remains the most direct OP Mainnet to Ethereum path."
+    },
+    {
+      "q": "Optimism supported bridge tokens",
+      "a": "The Optimism Standard Bridge supports ETH and standard ERC-20 tokens that follow the expected bridge interfaces. It does not support every token design; fee-on-transfer and rebasing tokens can create accounting problems and are not supported by the Standard Bridge. Users should verify the token contract on both Ethereum and OP Mainnet, especially when a token has multiple bridged versions. If a wallet or DeFi app shows a similar ticker more than once, the contract address matters more than the symbol."
+    },
+    {
+      "q": "Bridge ETH to Optimism for gas",
+      "a": "ETH is the gas asset used on OP Mainnet, so many users bridge ETH first before moving ERC-20 positions. Keeping a small ETH balance on OP Mainnet helps pay for swaps, approvals, NFT mints, and future transfers. If you bridge only a token such as USDC or WBTC, you may still need ETH to use it. Check the estimated received amount and network selector in the bridge UI, then verify your OP Mainnet address in an explorer after the deposit confirms."
+    },
+    {
+      "q": "Optimism bridge vs Arbitrum bridge",
+      "a": "Optimism and Arbitrum are both Ethereum Layer 2 networks, but their official bridges are separate systems with different token lists, withdrawal flows, and ecosystem liquidity. OP Mainnet uses OP Stack infrastructure and the Standard Bridge pattern; Arbitrum has its own canonical bridge and dispute architecture. Searchers comparing them usually care about withdrawal timing, application support, gas cost, and whether a specific token is canonical on the destination chain. The right bridge is the one matching the app and token contract you plan to use after arrival."
+    }
+  ],
+  "compare": {
+    "title": "Optimism Bridge vs fast liquidity bridges",
+    "rows": [
+      ["Dimension", "Optimism Standard Bridge", "Liquidity bridge"],
+      ["Main route", "Ethereum <> OP Mainnet", "Multiple chains"],
+      ["Withdrawal timing", "7-day canonical exit to Ethereum", "Often faster if liquidity exists"],
+      ["Token handling", "Standard Bridge token representations", "Pool or route-specific assets"],
+      ["Best for", "Canonical deposits and exits", "Speed-sensitive smaller transfers"]
+    ]
+  },
+  "faq": [
+    {
+      "q": "How long does it take to bridge from Ethereum to Optimism?",
+      "a": "Depositing from Ethereum to OP Mainnet through the Standard Bridge is usually a short process once the Ethereum transaction confirms. The official docs describe Ethereum-to-OP Mainnet transfers as typically completed in 1-3 minutes. Actual timing can vary with Ethereum congestion, wallet confirmation speed, and bridge indexing."
+    },
+    {
+      "q": "Why does Optimism withdrawal take 7 days?",
+      "a": "OP Mainnet withdrawals to Ethereum use an optimistic-rollup challenge period. The 7-day wait gives the system time to handle fraud-proof assumptions before assets are released on Ethereum. It is expected behavior for canonical withdrawals, not a fee setting that can be skipped inside the Standard Bridge."
+    },
+    {
+      "q": "Can I bridge OP token to Optimism?",
+      "a": "OP exists as the Optimism ecosystem token, but bridge availability depends on the source network and the token contract you hold. If OP is on an exchange, a direct OP Mainnet withdrawal may be simpler than bridging from Ethereum. If it is in a wallet, use a verified bridge route and confirm the destination contract."
+    },
+    {
+      "q": "Does Optimism bridge support USDC?",
+      "a": "USDC availability on OP Mainnet can include native and bridged representations, so users should pay attention to the exact token contract. A bridge may deliver a version that is accepted by some apps but not all. Before transferring size, check the destination protocol's supported USDC contract and consider a small test transfer."
+    },
+    {
+      "q": "What happens if I bridge the wrong token to Optimism?",
+      "a": "If the token is unsupported or the wrong representation, it may arrive as an asset your intended app does not recognize. The funds may still be visible at the address, but using them can require another bridge, swap, or manual token import. Always verify the source token, destination token, and receiving address before confirming."
+    },
+    {
+      "q": "Can smart contract wallets use the Optimism bridge?",
+      "a": "Smart contract wallets need extra care with bridge functions because contracts may not exist at the same address on every chain. Optimism documentation warns that certain bridge calls can be unsafe for smart contract wallets and points developers toward recipient-specific bridge functions. Users should follow wallet-specific guidance before bridging from a contract account."
+    }
+  ],
+  "niche": {
+    "type": "bridge",
+    "asset": "ETH",
+    "receive": "ETH on OP Mainnet",
+    "supported_networks": ["Ethereum", "OP Mainnet"]
+  },
+  "authority": [
+    { "text": "OP Mainnet Gateway", "url": "https://app.optimism.io/bridge" },
+    { "text": "Optimism Standard Bridge documentation", "url": "https://docs.optimism.io/app-developers/guides/bridging/standard-bridge" },
+    { "text": "Optimism GitHub", "url": "https://github.com/ethereum-optimism" },
+    { "text": "Optimism on CoinGecko", "url": "https://www.coingecko.com/en/coins/optimism" },
+    { "text": "OP Mainnet explorer", "url": "https://optimistic.etherscan.io/" },
+    { "text": "Optimism on DeFiLlama", "url": "https://defillama.com/chain/Optimism" }
+  ],
+  "sameAs": [
+    "https://x.com/Optimism",
+    "https://github.com/ethereum-optimism",
+    "https://www.coingecko.com/en/coins/optimism",
+    "https://defillama.com/chain/Optimism"
+  ]
+}
