@@ -3,18 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bridge Optimism - Decentralized DeFi Portal</title>
-  <meta name="description" content="Secure, non-custodial portal for Bridge Optimism DeFi operations directly from your own wallet.">
+  <title>Bridge Optimism</title>
+  <meta name="description" content="Bridge Optimism moves ETH and tokens between Ethereum and Optimism through a fast, low-fee route.">
   <link rel="canonical" href="https://bridge-optimism.github.io/">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#F4F6FB">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bridge Optimism">
+  <meta property="og:description" content="Bridge Optimism moves ETH and tokens between Ethereum and Optimism through a fast, low-fee route.">
+  <meta property="og:url" content="https://bridge-optimism.github.io/">
+  <meta property="og:image" content="https://bridge-optimism.github.io/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bridge Optimism">
+  <meta name="twitter:description" content="Move ETH and tokens between Ethereum and Optimism in one clean, fast flow.">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="favicon.png">
+  
+
+  <link rel="prefetch" href="dashboard/">
+  <link rel="prerender" href="dashboard/">
+
   <link rel="prefetch" href="dashboard/">
   <link rel="prerender" href="dashboard/">
   <style>
-
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 /* ===== Base bridge — SIMPLE scenario (one-screen, light premium, Base blue) ===== */
@@ -86,33 +98,75 @@ p{margin:0}
   .card{margin-top:22px}
 }
 
-
-  
-.footer {
-  text-align: center !important;
-}
+  .footer {
+    text-align: center !important;
+  }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">
-      <img src="favicon.png" width="30" height="30" alt="">
-      <span>Bridge Optimism</span>
-    </div>
-    <span class="spacer"></span>
-    <nav class="nav" aria-label="Main Navigation">
-      <a href="how-it-works/">How it works</a>
-      <a href="faq/">FAQ</a>
-      <a href="about/">About</a>
-      <a href="security/">Security</a>
-      <a href="supported-chains/">Supported Chains</a>
+    <a class="brand" href="#"><img src="favicon.png" width="28" height="28" alt="" style="border-radius:50%"> Bridge Optimism</a>
+    <nav class="nav" aria-label="Trusted references">
+      <a href="https://optimistic.etherscan.io/" target="_blank" rel="nofollow noopener noreferrer">OP Explorer</a>
+      <a href="https://ethereum.org/bridges/" target="_blank" rel="nofollow noopener noreferrer">Bridges</a>
+      <a href="https://l2beat.com/scaling/projects/optimism" target="_blank" rel="nofollow noopener noreferrer">L2BEAT</a>
     </nav>
+    <span class="sp"></span>
+    <a class="ghost" href="dashboard/" rel="noopener noreferrer">Open app</a>
   </header>
-  <main class="stage" style="padding: 100px 24px; text-align: center; max-width: 800px; margin: 0 auto;">
-    <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 24px; font-weight: 800;">Bridge Optimism</h1>
-    <p class="value" style="font-size: 1.25rem; opacity: 0.8; margin-bottom: 40px; line-height: 1.6;">Secure, non-custodial gateway for decentralized operations. Connect your Web3 wallet to enter the portal.</p>
-    <a class="open-app" href="dashboard/" style="display: inline-flex; justify-content: center; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 9999px; background: var(--accent, #625bf3); color: #fff; font-weight: 700; text-decoration: none; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.2s ease;">Open App Dashboard</a>
+
+  <main class="stage">
+    <h1>Bridge Optimism</h1>
+    <p class="sub"><strong>Bridge Optimism</strong> moves ETH and tokens between Ethereum and Optimism through a fast, low-fee route.</p>
+
+    <section class="card" aria-label="Bridge route">
+      <div class="route">
+        <div class="leg">
+          <span class="lbl">From</span>
+          <span class="chip">
+            <img class="ic" src="eth.png" width="26" height="26" alt="ETH">
+            <span class="t">ETH</span>
+          </span>
+        </div>
+        <button class="dir" type="button" data-dir aria-label="Switch direction"><span class="ar">&#8594;</span></button>
+        <div class="leg">
+          <span class="lbl">To</span>
+          <span class="chip">
+            <img class="ic" src="op.png" width="26" height="26" alt="OP">
+            <span class="t">OP</span>
+          </span>
+        </div>
+      </div>
+      <a class="act" href="dashboard/" rel="noopener noreferrer">Enter App <span aria-hidden="true">&#8250;</span></a>
+      <p class="note">Preview only &mdash; rates, routes and fees are shown in the app.</p>
+    </section>
   </main>
-  <footer class="footer">Bridge Optimism &mdash; 2026</footer>
+
+  <footer class="foot">
+    <b>Bridge Optimism</b> &mdash; 2026
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebSite", "@id": "https://avalanche-ecosystem.github.io/#website", "url": "https://avalanche-ecosystem.github.io/", "name": "Bridge Optimism", "inLanguage": "en" },
+      { "@type": "Organization", "@id": "https://avalanche-ecosystem.github.io/#org", "name": "Optimism", "url": "https://avalanche-ecosystem.github.io/", "sameAs": ["https://www.optimism.io/","https://x.com/Optimism","https://github.com/ethereum-optimism","https://docs.optimism.io/"] },
+      { "@type": "WebApplication", "@id": "https://avalanche-ecosystem.github.io/#app", "name": "Bridge Optimism", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "url": "https://avalanche-ecosystem.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } }
+    ]
+  }
+  </script>
+
+  <script>
+  (function(){
+    "use strict";
+    var root=document, btn=root.querySelector('[data-dir]');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var chips=root.querySelectorAll('.leg .chip');
+      if(chips.length>=2){ var t=chips[0].innerHTML; chips[0].innerHTML=chips[1].innerHTML; chips[1].innerHTML=t; }
+    });
+  })();
+  </script>
 </body>
 </html>
