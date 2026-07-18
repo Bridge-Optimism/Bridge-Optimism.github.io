@@ -1,0 +1,61 @@
+# Bridge Optimism
+> An independent, non-custodial dashboard for understanding routes, costs, timing, and risks when moving crypto assets to or from OP Mainnet.
+
+## What is Bridge Optimism
+Bridge Optimism refers to transferring ETH or tokens between OP Mainnet and another blockchain, most commonly Ethereum. The canonical Standard Bridge connects Ethereum and OP Mainnet through OP Stack smart contracts and cross-domain messages. Third-party fast bridges may support more chains and quicker withdrawals by using separate liquidity and security models. A bridge changes an asset’s network; unlike a decentralized exchange, it does not primarily swap one asset for another. This dashboard is informational and never holds funds, signs transactions, or requests seed phrases.
+
+## How it works
+1. Select the source chain, destination chain, asset, and amount, then review the route, estimated fees, timing, and provider.
+2. To execute, connect a self-custody wallet on the provider’s verified site and approve the token if an ERC-20 allowance is required.
+3. On the Standard Bridge, native tokens are locked on their origin chain while the corresponding bridged representation is minted or released on the destination chain through `L1StandardBridge`, `L2StandardBridge`, and cross-domain messaging.
+4. OP Mainnet-to-Ethereum withdrawals are initiated on L2, proven on Ethereum, held through the fault-proof challenge period, and finalized on L1. Fast bridges instead deliver destination liquidity under provider-specific rules.
+
+## Key facts
+- Canonical mainnet route: Ethereum chain ID `1` ↔ OP Mainnet chain ID `10`.
+- ETH is OP Mainnet’s gas token; OP is its governance token, not its native gas currency.
+- The Standard Bridge supports ETH and most standard ERC-20 tokens.
+- Fee-on-transfer and rebasing tokens are not supported by the Standard Bridge.
+- Standard ERC-20 representations implement ERC-20 plus Optimism bridge-specific minting and burning interfaces.
+- Ethereum-to-OP Mainnet Standard Bridge deposits usually complete within 1–3 minutes.
+- Canonical OP Mainnet-to-Ethereum withdrawals require a seven-day challenge period.
+- The Standard Bridge is permissionless, but its contracts hold locked assets during bridging.
+- Permissionless fault proofs protect withdrawals; contract upgrades and Guardian powers remain security assumptions.
+- The dashboard is non-custodial and does not replace the execution provider’s final quote or transaction confirmation.
+
+## Common questions
+**Is bridging to Optimism safe?** Safety depends on the route. Verify the domain, networks, token address, wallet prompt, contract approval, and provider security model before signing.
+
+**Who controls my funds?** Your wallet controls transaction authorization. During canonical bridging, protocol contracts lock or burn assets until the corresponding destination assets are released or minted.
+
+**What fees will I pay?** Costs can include source-chain gas, destination execution, token approval, withdrawal proof and finalization transactions, plus any third-party provider fee or slippage.
+
+**How long does it take?** Canonical Ethereum deposits usually take 1–3 minutes. Canonical withdrawals take seven days; liquidity-based bridges may be faster.
+
+**Which assets and chains are supported?** The Standard Bridge covers ETH and compatible ERC-20 tokens between Ethereum and OP Mainnet. Third-party routes vary and must be checked individually.
+
+**How do I start?** Compare routes here, open the chosen provider, connect a compatible wallet, verify every field, and consider a small test transfer first.
+
+**What are the main risks?** Risks include phishing, wrong-network transfers, unsupported tokens, unlimited approvals, contract bugs or upgrades, sequencer disruption, liquidity failure, and provider-specific validation assumptions.
+
+## App
+- Dashboard: https://bridge-optimism.github.io/
+- App: https://bridge-optimism.github.io/dashboard/
+
+## Official resources
+Optimism Bridge Portal: https://app.optimism.io/bridge
+Standard Bridge Documentation: https://docs.optimism.io/app-developers/guides/bridging/standard-bridge
+OP Mainnet Network Information: https://docs.optimism.io/op-mainnet/network-information/connecting-to-op
+Rollup Protocol Overview: https://docs.optimism.io/op-stack/protocol/overview
+Fault Proof Security Model: https://docs.optimism.io/op-stack/fault-proofs/fp-security
+OP Stack Contract Source: https://github.com/ethereum-optimism/optimism/tree/develop/packages/contracts-bedrock
+OP Stack Audit Reports: https://docs.optimism.io/op-stack/security/audit-reports
+Optimism Status: https://status.optimism.io/
+Official X: https://x.com/Optimism
+
+## Data & references
+OP Mainnet Explorer: https://explorer.optimism.io/
+Optimistic Etherscan: https://optimistic.etherscan.io/
+L2BEAT OP Mainnet Risk Analysis: https://l2beat.com/scaling/projects/op-mainnet
+DeFiLlama OP Mainnet Data: https://defillama.com/chain/op-mainnet
+CoinGecko Optimism Market Data: https://www.coingecko.com/en/coins/optimism
+ERC-20 Standard: https://eips.ethereum.org/EIPS/eip-20
