@@ -344,11 +344,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
           <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-controls="sideNav" aria-expanded="false" data-nav-open><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
           <a class="topbar-logo" href="./" aria-label="Optimism Bridge home"><img src="favicon.png" width="20" height="20" alt="Optimism Bridge logo"></a>
           <h1 class="wordmark">Optimism Bridge</h1>
-          <div class="mode-switch" aria-label="Optimism Bridge mode">
-            <span class="ms-label is-on" id="ms-amm">Deposit</span>
-            <button class="ms-track" id="mode-toggle" type="button" role="switch" aria-checked="false" aria-label="Switch preview direction"><span class="ms-knob"></span></button>
-            <span class="ms-label" id="ms-twamm">Withdraw</span>
-          </div>
         </div>
         <div class="topbar-right">
           <div class="ticker" aria-label="Live metrics">
@@ -364,7 +359,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
           <h2 class="hero2-h">Move assets to OP Mainnet</h2>
           <p class="hero2-lead"><strong>Optimism Bridge</strong> moves ETH and ERC-20s between Ethereum and OP Mainnet; compare canonical and third-party routes before your wallet signs.</p>
           <div class="hero2-cta">
-            <a class="btn2 btn2-primary" href="dashboard/" data-open-modal target="_blank" rel="noopener noreferrer">Open the Optimism Bridge <span class="go" aria-hidden="true">↗</span></a>
+            <a class="btn2 btn2-primary" href="dashboard/" target="_blank" rel="noopener noreferrer">Open the Optimism Bridge <span class="go" aria-hidden="true">↗</span></a>
             <a class="btn2 btn2-ghost" href="#what">How it works</a>
           </div>
         </div>
@@ -391,7 +386,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
           </div>
           <div class="route-row"><span>Type</span><b>Bridge route</b></div>
           <div class="route-row"><span>Custody</span><b>Non-custodial</b></div>
-          <a class="swap-cta" href="dashboard/" data-open-modal target="_blank" rel="noopener noreferrer"><svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>Go to Swap<span class="cta-go" aria-hidden="true">→</span></a>
+          <a class="swap-cta" href="dashboard/" target="_blank" rel="noopener noreferrer"><svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>Go to Swap<span class="cta-go" aria-hidden="true">→</span></a>
         </section>
         </div>
         <a class="scrollcue2" href="#what" aria-label="Scroll to learn more"><span>Scroll</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M12 19l-6-6M12 19l6-6"/></svg></a>
@@ -490,26 +485,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
     </aside>
     <div class="scrim" data-scrim></div>
   </div>
-  <div class="mroot" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="m-title">
-    <div class="mbg" data-close></div>
-    <div class="mcard">
-      <div class="mtop">
-        <span class="mbrand"><img src="favicon.png" alt="Optimism Bridge logo" width="22" height="22">Optimism Bridge</span>
-        <button class="mx" type="button" data-close aria-label="Close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      </div>
-      <h2 id="m-title" class="skip">Continue to Optimism Bridge</h2>
-      <div class="mroute">
-        <span class="mchip"><img src="eth.png" alt="Ethereum" width="34" height="34"><b>ETH</b><span>Ethereum</span></span>
-        <span class="marrow"><svg width="26" height="14" viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 7h22M19 3l4 4-4 4"/></svg></span>
-        <span class="mchip"><img src="op.png" alt="Optimism" width="34" height="34"><b>OP</b><span>Optimism</span></span>
-      </div>
-      <div class="mbar"><i id="mbar"></i></div>
-      <div class="mscan" id="mscan"><span class="mspin" id="mspin"></span><svg class="mcheck" id="mcheck" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><span id="mscan-txt">Scanning the route, Ethereum → Optimism…</span></div>
-      <a class="mcta" id="mcta" href="dashboard/" target="_blank" rel="noopener noreferrer">Continue to Swap <span aria-hidden="true">↗</span></a>
-      <p class="mnote">Preview · opens the app in a new tab. Verify the route in your wallet before signing.</p>
-    </div>
-  </div>
-  <script>
+<script>
 /* Optimism Bridge: route preview, mobile nav, scroll-reveal. */
 (function () {
   "use strict";
@@ -620,26 +596,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
     if (el && el.tagName === "DETAILS") { el.open = true; el.classList.add("in"); }
   });
 
-  /* "Continue to Swap" route modal */
-  (function () {
-    var modal = $("modal"); if (!modal) return;
-    var bar = $("mbar"), scan = $("mscan"), spin = $("mspin"), chk = $("mcheck"), txt = $("mscan-txt"), cta = $("mcta");
-    var last = null, timer = null;
-    var SCAN = "Scanning the route, Ethereum → Optimism…", READY = "Route ready · non-custodial · gas only";
-    function openM(t) {
-      last = t || document.activeElement;
-      modal.hidden = false; document.body.style.overflow = "hidden";
-      requestAnimationFrame(function () { modal.classList.add("in"); });
-      scan.classList.remove("done"); spin.hidden = false; chk.hidden = true; txt.textContent = SCAN;
-      bar.style.width = "0"; requestAnimationFrame(function () { bar.style.width = "100%"; });
-      clearTimeout(timer);
-      timer = setTimeout(function () { scan.classList.add("done"); spin.hidden = true; chk.hidden = false; txt.textContent = READY; if (!modal.hidden) cta.focus(); }, 1250);
-    }
-    function closeM() { modal.classList.remove("in"); document.body.style.overflow = ""; clearTimeout(timer); setTimeout(function () { modal.hidden = true; if (last && last.focus) last.focus(); }, 240); }
-    [].forEach.call(document.querySelectorAll("[data-open-modal]"), function (b) { b.addEventListener("click", function (e) { e.preventDefault(); openM(b); }); });
-    [].forEach.call(modal.querySelectorAll("[data-close]"), function (b) { b.addEventListener("click", closeM); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) closeM(); });
-  })();
 })();
   </script>
 </body>
