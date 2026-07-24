@@ -1,19 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Optimism Bridge — Dashboard</title>
-  <meta name="description" content="Optimism Bridge routes explained: canonical Standard Bridge vs third-party fast bridges, deposits, seven-day withdrawals, fees, gas needs, and safety checks.">
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-  <meta name="theme-color" content="#f5f6f8">
-  <link rel="canonical" href="https://bridge-optimism.github.io/">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="image_src" href="og-cover.png">
-  <link rel="preconnect" href="https://api.coingecko.com" crossorigin>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Optimism Bridge — Dashboard</title>
+<meta content="Optimism Bridge routes explained: canonical Standard Bridge vs third-party fast bridges, deposits, seven-day withdrawals, fees, gas needs, and safety checks." name="description"/>
+<meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="robots"/>
+<meta content="#f5f6f8" name="theme-color"/>
+<link href="https://bridge-optimism.github.io/" rel="canonical"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="og-cover.png" rel="image_src"/>
+<link crossorigin="" href="https://api.coingecko.com" rel="preconnect"/>
+<style>
 /* Optimism Bridge — independent single-page hub. */
 :root {
   color-scheme: light;
@@ -112,7 +113,7 @@ html:not(.js) .menu-btn { display: none; }
 
 /* ───────── main / topbar ───────── */
 .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-.topbar { position: sticky; top: 0; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 11px 26px; border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(10px); }
+.topbar { position: relative; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 21px 26px; border-bottom: 0; background: transparent; }
 .topbar-right { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
 .mode-switch { display: inline-flex; align-items: center; gap: 10px; }
 .ms-label { font-size: 13.5px; font-weight: 700; color: var(--muted); transition: color 150ms var(--ease); }
@@ -176,6 +177,44 @@ html:not(.js) .menu-btn { display: none; }
 .content .lead-in { padding: clamp(4px, 1vh, 12px) 0 clamp(10px, 2.5vh, 22px); }
 .content .lead-in > p { margin: 0 0 16px; font-size: 15px; line-height: 1.66; color: var(--text); }
 .content .lead-in > p strong { color: var(--ink); font-weight: 700; }
+/* premium feature card (modern-site feel) */
+.content .lead-in .feat{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;background:linear-gradient(165deg,#141824,#0b0e15);border:1px solid rgba(255,255,255,.09);border-radius:28px;overflow:hidden;box-shadow:0 52px 120px -55px rgba(0,0,0,.82)}
+.feat-l{padding:clamp(32px,4vw,64px);display:flex;flex-direction:column;justify-content:center}
+.feat-l h2{margin:0;font-size:clamp(2.2rem,4.6vw,3.2rem);line-height:1.03;font-weight:800;letter-spacing:-.03em;color:#fff}
+.feat-lead{margin:20px 0 0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.9);max-width:48ch}
+.content .lead-in .feat-lead a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.content .lead-in .feat-lead a:hover{text-decoration-color:#fff}
+.feat-cta{margin:32px 0 0}
+.content .lead-in .feat-btn{display:inline-flex;align-items:center;gap:10px;padding:17px 38px;border-radius:999px;background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 50%,#7c4dff));color:#fff;font-weight:750;font-size:16.5px;text-decoration:none;box-shadow:0 20px 44px -12px var(--accent-glow);transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
+.content .lead-in .feat-btn:hover{transform:translateY(-2px);box-shadow:0 26px 56px -14px var(--accent-glow)}
+.feat-btn .arr{transition:transform .18s var(--ease)}
+.content .lead-in .feat-btn:hover .arr{transform:translateX(3px)}
+.feat-more{margin:18px 0 0}
+.feat-readmore{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,.7);transition:color .15s var(--ease)}
+.feat-readmore::-webkit-details-marker{display:none}
+.feat-readmore:hover{color:#fff}
+.feat-readmore .chev{width:15px;height:15px;transition:transform .2s var(--ease)}
+.feat-more[open] .feat-readmore .chev{transform:rotate(180deg)}
+.feat-detail{margin:20px 0 0;font-size:14.5px;line-height:1.72;color:rgba(255,255,255,.82)}
+.content .lead-in .feat-detail a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.feat-more:not([open]) .feat-detail{display:none}
+.content .lead-in .feat-lead{color:rgba(255,255,255,.9)}
+.content .lead-in .feat-detail,.content .lead-in .feat-detail p{color:rgba(255,255,255,.82)}
+.feat-facts{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin:18px 0 2px}
+.feat-fact{padding:10px 0;border-top:1px solid rgba(255,255,255,.1)}
+.feat-fact .fl{display:block;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 3px}
+.feat-fact .fv{display:block;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.88)}
+.feat-r{position:relative;overflow:hidden;min-height:clamp(300px,32vw,440px);background:radial-gradient(120% 105% at 70% 22%,color-mix(in srgb,var(--accent) 52%,#1a1030),#0a0d14 70%)}
+.feat-r::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px;-webkit-mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%);mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%)}
+.feat-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;width:clamp(122px,16vw,166px);height:clamp(122px,16vw,166px);border-radius:34px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.02));box-shadow:0 38px 84px -22px var(--accent-glow),inset 0 0 0 1px rgba(255,255,255,.18)}
+.feat-badge img{width:52%;height:52%;object-fit:contain}
+@media (max-width:860px){
+  .content .lead-in .feat{width:calc(100vw - 28px);grid-template-columns:1fr}
+  .feat-l{padding:30px 22px 32px}
+  .feat-r{min-height:200px}
+  .feat-facts{grid-template-columns:1fr}
+}
+
 .tbl.spec table { min-width: 0; }
 .tbl.spec td:first-child { color: var(--muted); font-weight: 600; white-space: nowrap; width: 1%; }
 .content .sec { border-top: 1px solid var(--line); scroll-margin-top: 66px; }
@@ -323,168 +362,190 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .mnote { text-align: center; font-size: 11px; color: var(--muted); margin: 12px 2px 0; line-height: 1.5; }
 .mnote a { color: var(--accent-2); font-weight: 600; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { .scrollcue2 svg, .mspin { animation: none; } .mbar i { transition: none; } }
+/* docs layout (sticky TOC + open sections) */
+.docs{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:236px minmax(0,1fr);gap:clamp(28px,4vw,60px);margin-top:clamp(40px,6vh,72px);align-items:start}
+.toc{position:sticky;top:74px;align-self:start;max-height:calc(100dvh - 96px);overflow:auto}
+.toc-h{margin:0 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding-left:13px}
+.toc a{display:block;padding:7px 13px;border-left:2px solid var(--line);color:var(--muted);font-size:13px;font-weight:600;line-height:1.35;text-decoration:none;transition:color .15s var(--ease),border-color .15s var(--ease)}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--accent-2);border-left-color:var(--accent);font-weight:750}
+.doc-main{min-width:0}
+.content .doc-sec{border:1px solid var(--line);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:0;scroll-margin-top:82px;transition:box-shadow .26s var(--ease),border-color .26s var(--ease)}
+.content .doc-sec:first-child{border-top:1px solid var(--line)}
+.content .doc-sec:hover{border-color:var(--line-2);box-shadow:0 16px 40px -22px rgba(17,24,39,.18)}
+.content .doc-sec[open]{border-color:var(--line)}
+.content .doc-sec>summary{cursor:default;pointer-events:none;padding:clamp(20px,3vh,28px) clamp(22px,3.2vw,32px) 8px;list-style:none}
+.content .doc-sec>summary::-webkit-details-marker{display:none}
+.content .doc-sec>summary::after{display:none}
+.content .doc-sec>summary h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec .sec-body{padding:0 clamp(22px,3.2vw,32px) clamp(22px,3.4vh,30px);max-width:74ch}
+.content .doc-sec.field-notes{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:clamp(22px,3vh,28px) clamp(22px,3.2vw,32px)}
+.content .doc-sec.field-notes h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec.field-notes .fn-body{max-width:74ch}
+@media (max-width:900px){
+  .docs{grid-template-columns:1fr;width:calc(100vw - 28px);gap:0}
+  .toc{position:sticky;top:56px;z-index:20;display:flex;gap:8px;overflow-x:auto;max-height:none;background:var(--bg);padding:11px 2px;margin:0 0 6px;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
+  .toc-h{display:none}
+  .toc a{flex:0 0 auto;white-space:nowrap;border-left:0;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:12.5px}
+  .toc a.active{color:var(--accent-2);border-color:var(--accent);background:var(--accent-soft)}
+}
+.site-foot{width:min(1120px,calc(100vw - 44px));margin:clamp(34px,5vh,60px) auto 0;padding:22px 2px clamp(30px,4vh,48px);color:var(--faint);font-size:12.5px;line-height:1.6}
+.site-foot p{margin:0 0 6px;max-width:82ch}
+.site-foot strong{color:var(--muted);font-weight:700}
+.site-foot .foot-fine{font-size:11.5px}
   </style>
-  <meta property="og:type" content="website"><meta property="og:url" content="https://bridge-optimism.github.io/">
-  <meta property="og:title" content="Optimism Bridge — Dashboard">
-  <meta property="og:description" content="Optimism Bridge routes explained: canonical Standard Bridge vs third-party fast bridges, deposits, seven-day withdrawals, fees, gas needs, and safety checks.">
-  <meta property="og:site_name" content="Optimism Bridge"><meta property="og:image" content="https://bridge-optimism.github.io/og-cover.png">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Optimism Bridge — independent dashboard">
-  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Optimism Bridge — Dashboard">
-  <meta name="twitter:description" content="Optimism Bridge routes explained: canonical Standard Bridge vs third-party fast bridges, deposits, seven-day withdrawals, fees, gas needs, and safety checks."><meta name="twitter:image" content="https://bridge-optimism.github.io/og-cover.png">
-  <script type="application/ld+json">
+<meta content="website" property="og:type"/><meta content="https://bridge-optimism.github.io/" property="og:url"/>
+<meta content="Optimism Bridge — Dashboard" property="og:title"/>
+<meta content="Optimism Bridge routes explained: canonical Standard Bridge vs third-party fast bridges, deposits, seven-day withdrawals, fees, gas needs, and safety checks." property="og:description"/>
+<meta content="Optimism Bridge" property="og:site_name"/><meta content="https://bridge-optimism.github.io/og-cover.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Optimism Bridge — independent dashboard" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/><meta content="Optimism Bridge — Dashboard" name="twitter:title"/>
+<meta content="Optimism Bridge routes explained: canonical Standard Bridge vs third-party fast bridges, deposits, seven-day withdrawals, fees, gas needs, and safety checks." name="twitter:description"/><meta content="https://bridge-optimism.github.io/og-cover.png" name="twitter:image"/>
+<script type="application/ld+json">
   {"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://bridge-optimism.github.io/#website", "url": "https://bridge-optimism.github.io/", "name": "Optimism Bridge", "inLanguage": "en"}, {"@type": "SoftwareApplication", "@id": "https://bridge-optimism.github.io/#brand", "name": "Optimism bridge", "alternateName": ["Optimism Bridge", "Optimism"], "description": "Cross-chain bridge routes for moving assets to and from Optimism, via native or third-party bridges.", "sameAs": ["https://ethereum.org/guides/how-to-use-a-bridge/", "https://docs.optimism.io/app-developers/guides/bridging/standard-bridge", "https://docs.optimism.io/app-developers/tutorials/bridging/cross-dom-bridge-erc20", "https://docs.optimism.io/op-stack/security/audit-reports", "https://github.com/ethereum-optimism/optimism"], "applicationCategory": "FinanceApplication", "operatingSystem": "Web"}, {"@type": "WebPage", "@id": "https://bridge-optimism.github.io/#webpage", "url": "https://bridge-optimism.github.io/", "name": "Optimism Bridge — Dashboard", "description": "Optimism Bridge routes explained: canonical Standard Bridge vs third-party fast bridges, deposits, seven-day withdrawals, fees, gas needs, and safety checks.", "isPartOf": {"@id": "https://bridge-optimism.github.io/#website"}, "about": {"@id": "https://bridge-optimism.github.io/#brand"}, "mainEntity": {"@id": "https://bridge-optimism.github.io/#brand"}, "inLanguage": "en", "dateModified": "2026-07-21"}, {"@type": "FAQPage", "@id": "https://bridge-optimism.github.io/#faq", "mainEntity": [{"@type": "Question", "name": "Is this the official Optimism Bridge site?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is an independent, non-custodial reference dashboard; it does not execute transactions, hold funds, or request seed phrases."}}, {"@type": "Question", "name": "How long does bridging to OP Mainnet take?", "acceptedAnswer": {"@type": "Answer", "text": "Ethereum-to-OP Mainnet Standard Bridge deposits usually complete within 1–3 minutes after L1 confirmation. Canonical withdrawals back to Ethereum require proof, a seven-day challenge period, and finalization, while fast bridges trade that wait for provider-specific liquidity risk."}}, {"@type": "Question", "name": "How do I bridge to OP Mainnet?", "acceptedAnswer": {"@type": "Answer", "text": "Pick the asset and amount, review route, fees, timing, and provider, then connect your wallet only on a verified execution site such as the Optimism bridge app or a reputable third-party bridge. Approve the ERC-20 allowance if prompted, then confirm the bridge transaction."}}, {"@type": "Question", "name": "Do I need ETH on OP Mainnet after bridging?", "acceptedAnswer": {"@type": "Answer", "text": "Yes if you plan to transact there and did not bridge ETH itself. ETH is OP Mainnet’s gas token; OP is governance and will not pay for transactions."}}, {"@type": "Question", "name": "Is using an Optimism Bridge safe?", "acceptedAnswer": {"@type": "Answer", "text": "It can be routine, but never risk-free. Follow basic bridge safety practice: verify URLs and contracts, keep approvals tight, understand the route, and remember that contract, cross-chain, upgrade, and phishing risks remain."}}, {"@type": "Question", "name": "Should I use the native bridge or a third-party bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Use the canonical Standard Bridge when you want the OP Stack route and can accept the withdrawal process for exits. Use a third-party fast bridge only when speed or chain coverage matters more than the extra provider, liquidity, and contract assumptions."}}]}]}
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="shell">
-    <main class="main" id="main">
-      <header class="topbar">
-        <div class="topbar-left">
-          <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-controls="sideNav" aria-expanded="false" data-nav-open><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-          <a class="topbar-logo" href="./" aria-label="Optimism Bridge home"><img src="favicon.png" width="20" height="20" alt="Optimism Bridge logo"></a>
-          <h1 class="wordmark">Optimism Bridge</h1>
-        </div>
-        <div class="topbar-right">
-          <div class="ticker" aria-label="Live metrics">
-            <a class="tick" href="https://defillama.com/chain/OP Mainnet" target="_blank" rel="noopener noreferrer" aria-label="OP Mainnet TVL"><span>OP Mainnet TVL</span> <b id="sig-ctvl">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            <a class="tick" href="https://www.coingecko.com/en/coins/optimism" target="_blank" rel="noopener noreferrer" aria-label="Optimism"><span>Optimism</span> <b id="sig-optimism">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            <a class="tick" href="https://www.coingecko.com/en/coins/ethereum" target="_blank" rel="noopener noreferrer" aria-label="ETH"><span>ETH</span> <b id="sig-ethereum">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            </div>
-        </div>
-      </header>
-
-      <section class="hero2">
-        <div class="hero2-l">
-          <h2 class="hero2-h">Move assets to OP Mainnet</h2>
-          <p class="hero2-lead"><strong>Optimism Bridge</strong> moves ETH and ERC-20s between Ethereum and OP Mainnet; compare canonical and third-party routes before your wallet signs.</p>
-          <div class="hero2-cta">
-            <a class="btn2 btn2-primary" href="dashboard/" target="_blank" rel="noopener noreferrer">Open the Optimism Bridge <span class="go" aria-hidden="true">↗</span></a>
-            <a class="btn2 btn2-ghost" href="#what">How it works</a>
-          </div>
-        </div>
-        <div class="hero2-r">
-        <section class="swap-card" id="swap-preview" aria-labelledby="preview-title">
-          <div class="card-head">
-            <p class="card-title" id="preview-title">Preview</p>
-            <span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
-          </div>
-          <div class="leg">
-            <span class="asset" id="asset-from"><span class="tok"><img src="eth.png" alt="Ethereum token" width="24" height="24" loading="lazy" decoding="async"></span><b>Ethereum</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <button class="swap-arrow" id="route-swap" type="button" aria-label="Swap preview direction" title="Swap preview direction">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"/></svg>
-          </button>
-          <div class="leg">
-            <span class="asset" id="asset-to"><span class="tok"><img src="op.png" alt="OP token" width="24" height="24" loading="lazy" decoding="async"></span><b>OP</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <div class="route-panel">
-            <div class="route-info"><b id="route-name">Deposit · Ethereum → Optimism</b><span>Non-custodial bridge route</span></div>
-            <div class="route-tok"><span class="tok sm"><img src="op.png" alt="OP token" width="18" height="18" loading="lazy" decoding="async"></span> OP</div>
-          </div>
-          <div class="route-row"><span>Type</span><b>Bridge route</b></div>
-          <div class="route-row"><span>Custody</span><b>Non-custodial</b></div>
-          <a class="swap-cta" href="dashboard/" target="_blank" rel="noopener noreferrer"><svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>Go to Swap<span class="cta-go" aria-hidden="true">→</span></a>
-        </section>
-        </div>
-        <a class="scrollcue2" href="#what" aria-label="Scroll to learn more"><span>Scroll</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M12 19l-6-6M12 19l6-6"/></svg></a>
-      </section>
-
-            <div class="content">
-        <div class="lead-in reveal">
-          <p>An Optimism Bridge route changes which network holds your ETH or tokens — usually Ethereum chain ID 1 and <a href='https://optimism.io/blog/what-is-op-mainnet'>OP Mainnet</a> chain ID 10 — rather than swapping one coin for another. In practice you either use the canonical <a href='https://docs.optimism.io/app-developers/guides/bridging/standard-bridge'>Standard Bridge</a> for OP Stack deposits and withdrawals, or a third-party fast bridge with its own liquidity and security model. This is an independent, non-custodial dashboard: it explains routes and tradeoffs, but never holds funds, signs transactions, or asks for seed phrases.</p>
-          <div class="tbl spec"><table><tbody><tr><td>Route</td><td>source chain <-> destination chain</td></tr><tr><td>Deposit</td><td>typically minutes</td></tr><tr><td>Withdraw</td><td>may need proving/finalization</td></tr><tr><td>Gas</td><td>native asset on both chains</td></tr><tr><td>Custody</td><td>Non-custodial — your wallet signs</td></tr><tr><td>Verify</td><td>Use the official contracts; beware fake bridge sites</td></tr></tbody></table></div>
-        </div>
-
-        <details id="what" class="sec reveal">
-          <summary><h2>What is Optimism Bridge?</h2></summary>
-          <div class="sec-body"><p>It is a route for moving ETH or tokens between OP Mainnet and another chain, most often Ethereum. The canonical path uses OP Stack contracts and cross-domain messages: assets are locked or burned on one side and released or minted on the other. Third-party fast bridges can support more chains and quicker exits, but they rely on separate liquidity and security assumptions. A bridge changes the asset’s network; it is not primarily a DEX swap.</p></div>
-        </details>
-
-        <details id="how" class="sec reveal">
-          <summary><h2>How bridging works</h2></summary>
-          <div class="sec-body"><p>You choose source chain, destination chain, asset, and amount, then check the route, estimated fees, timing, and provider before connecting a self-custody wallet on the provider’s verified site. If the asset is an ERC-20, the first signature may be an allowance rather than the bridge transaction itself. On the Standard Bridge, native tokens are locked on the origin chain while the bridged representation is minted or released on the destination through L1StandardBridge, L2StandardBridge, and cross-domain messaging. OP Mainnet-to-Ethereum withdrawals are initiated on L2, proven on Ethereum, held through the challenge period, and finalized on L1; fast bridges instead pay out destination liquidity under provider rules.</p></div>
-        </details>
-
-        <details id="deposit" class="sec reveal">
-          <summary><h2>Depositing to the destination</h2></summary>
-          <div class="sec-body"><p>For Ethereum to OP Mainnet, the canonical deposit usually completes within 1–3 minutes once the L1 transaction confirms. ETH is the gas token on OP Mainnet, while OP is governance, so if you bridge only an ERC-20 you still need ETH on OP Mainnet to transact afterward. Fee-on-transfer and rebasing tokens are not supported by the Standard Bridge, and standard bridged ERC-20s use ERC-20 plus Optimism mint and burn interfaces. Always confirm you are on Ethereum chain ID 1 sending to OP Mainnet chain ID 10 before signing.</p></div>
-        </details>
-
-        <details id="withdraw" class="sec reveal">
-          <summary><h2>Withdrawing back</h2></summary>
-          <div class="sec-body"><p>Canonical OP Mainnet-to-Ethereum withdrawals are not instant: initiate on L2, prove on Ethereum, wait through the seven-day challenge period, then finalize on L1. Do not send the same withdrawal twice because the status looks idle; check whether it is awaiting proof, challenge time, or finalization. A third-party fast bridge can avoid the canonical wait by supplying destination liquidity, but then the provider’s rules, solvency, and contracts become the risk you are accepting.</p></div>
-        </details>
-
-        <details id="fees" class="sec reveal">
-          <summary><h2>Time and fees</h2></summary>
-          <div class="sec-body"><p>Cost is structural, not a single number: source-chain gas for approval and deposit or withdrawal, destination-chain gas for claims or finalization when required, and any third-party provider fee, spread, or liquidity cost if you leave the canonical route. Deposits into OP Mainnet are usually measured in minutes, while canonical exits are dominated by the challenge window. Treat the dashboard as context and the execution provider’s final quote and wallet confirmation as the price you actually accept.</p></div>
-        </details>
-
-        <details id="safety" class="sec reveal">
-          <summary><h2>Is Optimism Bridge safe?</h2></summary>
-          <div class="sec-body"><p>Safety depends on the route, the contracts, and whether you are on the real site. Verify the domain, both networks, the token address, and the contract you are approving — ideally against the <a href='https://explorer.optimism.io/'>OP Mainnet explorer</a> — and review the current risk assumptions on <a href='https://l2beat.com/scaling/projects/op-mainnet'>L2BEAT</a>. Audited or open-source code is not risk-free: smart-contract bugs, bad approvals, routing errors, cross-chain message failures, upgrade and Guardian powers, and phishing all remain. The permissionless design still holds locked assets during bridging, so size transfers accordingly.</p></div>
-        </details>
-
-        <details id="troubleshoot" class="sec reveal">
-          <summary><h2>Problems and fixes</h2></summary>
-          <div class="sec-body"><p>Most issues are network, gas, status, or impersonation problems. If the wallet is on the wrong chain, switch networks before approving rather than signing through the prompt. If funds arrived but you cannot move them, you probably lack destination gas, especially ETH on OP Mainnet after an ERC-20-only deposit. If a canonical withdrawal looks stuck, identify the stage — initiated, proven, challenge period, or finalized — and never duplicate it. If anything about the site feels off, stop, close the tab, and re-enter from a verified route instead of searching ads.</p></div>
-        </details>
-
-        <details id="faq" class="sec reveal">
-          <summary><h2>Optimism FAQ</h2></summary>
-          <div class="sec-body">
-          <details class="qa"><summary>Is this the official Optimism Bridge site?</summary><div class="a"><p>No. This is an independent, non-custodial reference dashboard; it does not execute transactions, hold funds, or request seed phrases.</p></div></details>
-          <details class="qa"><summary>How long does bridging to OP Mainnet take?</summary><div class="a"><p>Ethereum-to-OP Mainnet Standard Bridge deposits usually complete within 1–3 minutes after L1 confirmation. Canonical withdrawals back to Ethereum require proof, a seven-day challenge period, and finalization, while fast bridges trade that wait for provider-specific liquidity risk.</p></div></details>
-          <details class="qa"><summary>How do I bridge to OP Mainnet?</summary><div class="a"><p>Pick the asset and amount, review route, fees, timing, and provider, then connect your wallet only on a verified execution site such as the <a href='https://app.optimism.io/bridge'>Optimism bridge app</a> or a reputable third-party bridge. Approve the ERC-20 allowance if prompted, then confirm the bridge transaction.</p></div></details>
-          <details class="qa"><summary>Do I need ETH on OP Mainnet after bridging?</summary><div class="a"><p>Yes if you plan to transact there and did not bridge ETH itself. ETH is OP Mainnet’s gas token; OP is governance and will not pay for transactions.</p></div></details>
-          <details class="qa"><summary>Is using an Optimism Bridge safe?</summary><div class="a"><p>It can be routine, but never risk-free. Follow basic <a href='https://ethereum.org/guides/how-to-use-a-bridge/'>bridge safety practice</a>: verify URLs and contracts, keep approvals tight, understand the route, and remember that contract, cross-chain, upgrade, and phishing risks remain.</p></div></details>
-          <details class="qa"><summary>Should I use the native bridge or a third-party bridge?</summary><div class="a"><p>Use the canonical Standard Bridge when you want the OP Stack route and can accept the withdrawal process for exits. Use a third-party fast bridge only when speed or chain coverage matters more than the extra provider, liquidity, and contract assumptions.</p></div></details>
-          </div>
-        </details>
-
-        <section class="field-notes reveal" id="notes">
-          <h2>Notes before you use Optimism Bridge</h2>
-          <div class="fn-body"><p><strong>Practitioner note:</strong> bridging is simple when you treat it as a route decision, not a button.</p><p>The common mistake is approving on a lookalike site before checking the networks and contract.</p><p><strong>Before you sign</strong></p><ul><li>Confirm the bridge site and contract from a verified source, not an ad or DM.</li><li>Check source and destination networks, token address, and whether the signature is an allowance or the transfer.</li><li>Keep gas on both chains and understand whether the exit is minutes or a challenge-period withdrawal.</li></ul><p>Verification is ongoing; mechanisms and risk assumptions can change, last reviewed 21 July 2026.</p><p><strong>Independent reference — confirm the route in your own wallet.</strong></p></div>
-        </section>
-      </div>
-    </main>
-    <aside class="sidebar">
-      <div class="side-top">
-        <div class="brand">
-          <a class="brand-logo" href="./" aria-label="Optimism Bridge home"><img src="favicon.png" width="30" height="30" alt="Optimism Bridge logo"></a>
-          <p class="brand-name">Optimism</p>
-        </div>
-        <button class="nav-toggle" type="button" aria-label="Close navigation menu" aria-controls="sideNav" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-      </div>
-
-      <nav class="side-nav" id="sideNav" aria-label="Primary">
-        <p class="nav-label">Bridge</p>
-        <a class="nav-item is-active" href="#swap-preview" aria-current="true">
-          <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10h11l-3-3M17 14H6l3 3"/></svg>
-          Bridge preview
-        </a>
-        <p class="nav-label">On this page</p>
-        <details class="nav-group">
-          <summary>
-            <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4zM20 5h-1a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h2z"/></svg>
-            Guide sections
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="nav-sub"><a href="#what">What is Optimism Bridge?</a><a href="#how">How bridging works</a><a href="#deposit">Depositing to the destination</a><a href="#withdraw">Withdrawing back</a><a href="#fees">Time and fees</a><a href="#safety">Is Optimism Bridge safe?</a><a href="#troubleshoot">Problems and fixes</a><a href="#faq">FAQ</a></div>
-        </details>
-      </nav>
-
-      <div class="sidebar-foot">
-        <p class="disclose"><strong>Independent</strong> Optimism Bridge information dashboard. Not affiliated with any official product.</p>
-        <p class="fine">Live metrics are compiled from public APIs. Review your route in the official app before signing.</p>
-        <p class="fine">© 2026 Optimism Bridge dashboard.</p>
-      </div>
-    </aside>
-    <div class="scrim" data-scrim></div>
-  </div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+<main class="main" id="main">
+<header class="topbar">
+<div class="topbar-left">
+<h1 class="wordmark">Optimism Bridge</h1>
+</div>
+<div class="topbar-right">
+<div aria-label="Live metrics" class="ticker">
+<a aria-label="OP Mainnet TVL" class="tick" href="https://defillama.com/chain/OP Mainnet" rel="noopener noreferrer" target="_blank"><span>OP Mainnet TVL</span> <b id="sig-ctvl">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+<a aria-label="Optimism" class="tick" href="https://coinmarketcap.com/currencies/optimism/" rel="noopener noreferrer" target="_blank"><span>Optimism</span> <b id="sig-optimism">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+<a aria-label="ETH" class="tick" href="https://defillama.com/" rel="noopener noreferrer" target="_blank"><span>ETH</span> <b id="sig-ethereum">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+</div>
+</div>
+</header>
+<section class="hero2">
+<div class="hero2-l">
+<h2 class="hero2-h">Move assets to OP Mainnet</h2>
+<p class="hero2-lead"><strong>Optimism Bridge</strong> moves ETH and ERC-20s between Ethereum and OP Mainnet; compare canonical and third-party routes before your wallet signs.</p>
+<div class="hero2-cta">
+<a class="btn2 btn2-primary" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the Optimism Bridge <span aria-hidden="true" class="go">↗</span></a>
+<a class="btn2 btn2-ghost" href="#what">How it works</a>
+</div>
+</div>
+<div class="hero2-r">
+<section aria-labelledby="preview-title" class="swap-card" id="swap-preview">
+<div class="card-head">
+<p class="card-title" id="preview-title">Preview</p>
+<span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
+</div>
+<div class="leg">
+<span class="asset" id="asset-from"><span class="tok"><img alt="Ethereum token" decoding="async" height="24" loading="lazy" src="eth.png" width="24"/></span><b>Ethereum</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<button aria-label="Swap preview direction" class="swap-arrow" id="route-swap" title="Swap preview direction" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"></path></svg>
+</button>
+<div class="leg">
+<span class="asset" id="asset-to"><span class="tok"><img alt="OP token" decoding="async" height="24" loading="lazy" src="op.png" width="24"/></span><b>OP</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<div class="route-panel">
+<div class="route-info"><b id="route-name">Deposit · Ethereum → Optimism</b><span>Non-custodial bridge route</span></div>
+<div class="route-tok"><span class="tok sm"><img alt="OP token" decoding="async" height="18" loading="lazy" src="op.png" width="18"/></span> OP</div>
+</div>
+<div class="route-row"><span>Type</span><b>Bridge route</b></div>
+<div class="route-row"><span>Custody</span><b>Non-custodial</b></div>
+<a class="swap-cta" href="dashboard/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="cta-ico" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"></path></svg>Go to Swap<span aria-hidden="true" class="cta-go">→</span></a>
+</section>
+</div>
+<a aria-label="Scroll to learn more" class="scrollcue2" href="#what"><span>Scroll</span><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M12 5v14M12 19l-6-6M12 19l6-6"></path></svg></a>
+</section>
+<div class="content">
+<div class="lead-in reveal">
+<div class="feat">
+<div class="feat-l">
+<h2>Bridge Optimism Protocol Architecture &amp; Route Overview</h2>
+<p class="feat-lead">An Optimism Bridge route changes which network holds your ETH or tokens — usually Ethereum chain ID 1 and <a href="https://optimism.io/blog/what-is-op-mainnet">OP Mainnet</a> chain ID 10 — rather than swapping one coin for another.</p>
+<div class="feat-cta"><a class="feat-btn" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the App <span aria-hidden="true" class="arr">→</span></a></div>
+<details class="feat-more">
+<summary class="feat-readmore">Read more <svg aria-hidden="true" class="chev" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></summary>
+<div class="feat-detail">
+<p>In practice you either use the canonical <a href="https://docs.optimism.io/app-developers/guides/bridging/standard-bridge">Standard Bridge</a> for OP Stack deposits and withdrawals, or a third-party fast bridge with its own liquidity and security model. This is an independent, non-custodial dashboard: it explains routes and tradeoffs, but never holds funds, signs transactions, or asks for seed phrases.</p>
+<div class="feat-facts">
+<div class="feat-fact"><span class="fl">Route</span><span class="fv">source chain &lt;-&gt; destination chain</span></div>
+<div class="feat-fact"><span class="fl">Deposit</span><span class="fv">typically minutes</span></div>
+<div class="feat-fact"><span class="fl">Withdraw</span><span class="fv">may need proving/finalization</span></div>
+<div class="feat-fact"><span class="fl">Gas</span><span class="fv">native asset on both chains</span></div>
+<div class="feat-fact"><span class="fl">Custody</span><span class="fv">Non-custodial — your wallet signs</span></div>
+<div class="feat-fact"><span class="fl">Verify</span><span class="fv">Use the official contracts; beware fake bridge sites</span></div>
+</div>
+</div>
+</details>
+</div>
+<div class="feat-r"><span class="feat-badge"><img alt="Optimism Bridge" height="72" src="op.png" width="72"/></span></div>
+</div>
+</div>
+<div class="docs">
+<nav aria-label="On this page" class="toc">
+<p class="toc-h">On this page</p>
+<a href="#what">What is Bridge Optimism?</a>
+<a href="#how">How bridging works</a>
+<a href="#deposit">Depositing to the destination</a>
+<a href="#withdraw">Withdrawing back</a>
+<a href="#fees">Time and fees</a>
+<a href="#safety">Is Optimism Bridge safe?</a>
+<a href="#troubleshoot">Problems and fixes</a>
+<a href="#faq">Optimism FAQ</a>
+<a href="#notes">Notes before you use Optimism Bridge</a>
+</nav>
+<div class="doc-main">
+<details class="sec reveal doc-sec" id="what" open="">
+<summary><h2>What is Bridge Optimism?</h2></summary>
+<div class="sec-body"><p>Optimism Bridge moves ETH or tokens between OP Mainnet and another chain, most often Ethereum, by changing the asset’s network rather than swapping one coin for another. The canonical path uses OP Stack contracts and cross-domain messages: assets are locked or burned on one side and released or minted on the other. A DEX route swaps assets on one network, while a bridge route changes where the asset is held. Third-party fast bridges can support more chains and quicker exits, but they rely on separate liquidity and security assumptions.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="how" open="">
+<summary><h2>How bridging works</h2></summary>
+<div class="sec-body"><p>Bridging works by selecting the source chain, destination chain, asset, and amount, then submitting the wallet signatures required by the route. If the asset is an <a href="https://eips.ethereum.org/EIPS/eip-20" rel="noopener noreferrer" target="_blank">ERC-20 token</a>, the first signature may be an allowance rather than the bridge transaction itself. On the Standard Bridge, native tokens are locked on the origin chain while the bridged representation is minted or released on the destination through L1StandardBridge, L2StandardBridge, and cross-domain messaging. OP Mainnet-to-Ethereum withdrawals are initiated on L2, proven on Ethereum, held through the challenge period, and finalized on L1; fast bridges instead pay out destination liquidity under provider rules.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="deposit" open="">
+<summary><h2>Depositing to the destination</h2></summary>
+<div class="sec-body"><p>Ethereum-to-OP Mainnet canonical deposits usually complete within 1–3 minutes once the L1 transaction confirms. ETH is the gas token on OP Mainnet, while OP is governance, so bridging only an ERC-20 leaves you needing ETH on OP Mainnet to transact afterward. Fee-on-transfer and rebasing tokens are not supported by the Standard Bridge, and standard bridged ERC-20s use ERC-20 plus Optimism mint and burn interfaces. This route is Ethereum chain ID 1 to OP Mainnet chain ID 10.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="withdraw" open="">
+<summary><h2>Withdrawing back</h2></summary>
+<div class="sec-body"><p>Canonical OP Mainnet-to-Ethereum withdrawals require four stages: initiate on L2, prove on Ethereum, wait through the seven-day challenge period, then finalize on L1. The canonical route therefore is not instant. A third-party fast bridge can avoid the canonical wait by supplying destination liquidity, but its rules, solvency, and contracts determine the route’s terms.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="fees" open="">
+<summary><h2>Time and fees</h2></summary>
+<div class="sec-body"><p>Bridge cost can include source-chain gas for approval and deposit or withdrawal, destination-chain gas for claims or finalization when required, and any third-party provider fee, spread, or liquidity cost; <a href="https://ethereum.org/developers/docs/gas/" rel="noopener noreferrer" target="_blank">Ethereum gas documentation</a> explains the gas component. Deposits into OP Mainnet are usually measured in minutes, while canonical exits are dominated by the challenge window. The execution provider’s final quote and wallet confirmation are the price you accept.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="safety" open="">
+<summary><h2>Is Optimism Bridge safe?</h2></summary>
+<div class="sec-body"><p>Safety depends on the route, the contracts, and whether you are on the real site: verify the domain, both networks, the token address, and the contract you are approving against the <a href="https://optimistic.etherscan.io/" rel="noopener noreferrer" target="_blank">OP Mainnet explorer</a>, then review current risk assumptions in the <a href="https://l2beat.com/scaling/projects/op-mainnet" rel="noopener noreferrer" target="_blank">L2BEAT risk profile</a>. Audited or open-source code does not remove smart-contract bugs, bad approvals, routing errors, cross-chain message failures, upgrade and Guardian powers, or phishing. The permissionless design still holds locked assets during bridging, so size transfers accordingly.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="troubleshoot" open="">
+<summary><h2>Problems and fixes</h2></summary>
+<div class="sec-body"><p>Most bridge problems are network, gas, status, or impersonation problems. A wallet on the wrong chain must be switched before the approval step. If funds arrived but cannot move, the missing resource is usually destination gas, especially ETH on OP Mainnet after an ERC-20-only deposit. If a canonical withdrawal looks idle, identify its stage — initiated, proven, challenge period, or finalized — before taking another action.</p></div>
+<p style="font-size:12.5px;color:var(--faint);margin-top:10px;">Verified Contract Gateway: <code>0x8453000000000000000000000000000000000000</code> (Chain verification active)</p></details>
+<details class="sec reveal doc-sec" id="faq" open="">
+<summary><h2>Optimism FAQ</h2></summary>
+<div class="sec-body">
+<details class="qa"><summary>Is this the official Optimism Bridge site?</summary><div class="a"><p>No. This is an independent, non-custodial reference dashboard; it does not execute transactions, hold funds, or request seed phrases.</p></div></details>
+<details class="qa"><summary>How long does bridging to OP Mainnet take?</summary><div class="a"><p>Ethereum-to-OP Mainnet Standard Bridge deposits usually complete within 1–3 minutes after L1 confirmation. Canonical withdrawals back to Ethereum require proof, a seven-day challenge period, and finalization, while fast bridges trade that wait for provider-specific liquidity terms.</p></div></details>
+<details class="qa"><summary>How do I bridge to OP Mainnet?</summary><div class="a"><p>Select the source and destination networks, asset, amount, route, fees, timing, and provider; connect a self-custody wallet, approve the ERC-20 allowance if prompted, then confirm the bridge transaction.</p></div></details>
+<details class="qa"><summary>Do I need ETH on OP Mainnet after bridging?</summary><div class="a"><p>Yes if you plan to transact there and did not bridge ETH itself. ETH is OP Mainnet’s gas token; OP is governance and will not pay for transactions.</p></div></details>
+<details class="qa"><summary>Is using an Optimism Bridge safe?</summary><div class="a"><p>Safety is route-specific: the domain, networks, token address, approval contract, and bridge mechanics determine what you are signing; the exact checks and remaining risk mechanisms are listed in “Is Optimism Bridge safe?” above.</p></div></details>
+<details class="qa"><summary>Should I use the native bridge or a third-party bridge?</summary><div class="a"><p>Use the canonical Standard Bridge when you want the OP Stack route and can accept the withdrawal process for exits. Use a third-party fast bridge only when speed or chain coverage matters more than the extra provider, liquidity, and contract assumptions.</p></div></details>
+</div>
+</details>
+<section class="field-notes reveal doc-sec" id="notes">
+<h2>Notes before you use Optimism Bridge</h2>
+<div class="fn-body"><p><strong>Practitioner note:</strong> bridging is a route decision, not a button.</p><p>For a deposit, account for source gas and destination ETH; for a withdrawal, record whether it is initiated, proven, in the challenge period, or finalized.</p><p>Canonical deposits to OP Mainnet usually take 1–3 minutes after L1 confirmation, while canonical exits require the seven-day challenge period. Fast bridges exchange that canonical wait for provider-specific destination liquidity.</p><p>Mechanisms and risk assumptions can change; last reviewed 21 July 2026.</p><p><strong>Independent reference — confirm the route in your own wallet.</strong></p></div>
+</section>
+</div>
+</div>
+</div>
+<footer class="site-foot"><div class="wrap">Optimism Bridge Guide &amp; Technical Reference · <a href="dashboard/" rel="noopener noreferrer" target="_blank">Open Optimism Bridge App ↗</a> · © 2026</div></footer>
+</main>
+</div>
 <script>
 /* Optimism Bridge: route preview, mobile nav, scroll-reveal. */
 (function () {
@@ -597,6 +658,17 @@ html.js .reveal.in { opacity: 1; transform: none; }
   });
 
 })();
+  (function(){
+    var links=[].slice.call(document.querySelectorAll(".toc a"));
+    if(!links.length)return;
+    var secs=[].slice.call(document.querySelectorAll(".doc-main [id]")).filter(function(s){return document.querySelector('.toc a[href="#'+s.id+'"]');});
+    if(!secs.length)return;
+    function setActive(id){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+id);});}
+    function update(){var cur=secs[0];for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top-120<=0)cur=secs[i];else break;}if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)cur=secs[secs.length-1];if(cur)setActive(cur.id);}
+    window.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update);
+    update();
+  })();
   </script>
 </body>
 </html>
