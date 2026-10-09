@@ -1,44 +1,24 @@
-# Optimism Bridge — Technical Reference & Protocol Knowledge Base
+# Optimism Bridge
 
-> Optimism Bridge routes explained: canonical Standard Bridge vs third-party fast bridges, deposits, seven-day withdrawals, fees, gas needs, and safety checks.
+> Optimism Bridge moves ETH and tokens from Ethereum to Optimism, also called OP Mainnet. Compare token routes and estimate deposit gas fees.
 
-## Key Facts & Smart Contract Specs
-- **Protocol Class**: Canonical Cross-Chain Asset Bridge Infrastructure
-- **Supported Chain IDs**: 1, 10
-- **Protocol Fee Structure**: 0.00% Markup Fee (Standard Network Execution Gas Only)
-- **Custody Architecture**: Non-custodial — funds escrowed directly in smart contracts; wallet signs all approvals
-- **Security & Audits**: Open-source contracts audited by leading security firms; risk indexed on L2BEAT & Etherscan
-- **Practitioner Test Verification**: Tested & Verified by Practitioner (July 2026)
+## Pages
+- [Optimism Bridge](https://insert_url/): Ethereum to Optimism transfers, gas fee estimator, token matrix, route timing, security and FAQ.
+- [Deposit fee estimator](https://insert_url/#fees): editable Ethereum gas price, deposit units, optional approval units, route fees and a gas budget margin.
+- [Token matrix](https://insert_url/#routes): ETH, USDC, USDC.e and USDT by bridging mechanism.
+- [Bridge application](https://insert_url/dashboard/): start an Optimism Bridge transfer.
 
-## How Optimism Bridge Works
+## Network and routes
+- Source: Ethereum mainnet, chain ID 1.
+- Destination: OP Mainnet, chain ID 10.
+- ETH pays gas on both networks.
+- Standard Bridge deposits usually take 1-3 minutes.
+- Canonical withdrawals require initiation, proof, a seven-day challenge period after proof, and finalization.
+- Liquidity routes use provider-funded payouts; fees, tokens and timing depend on the route.
+- Ethereum USDC through the Standard Bridge arrives as USDC.e. Circle CCTP moves native USDC through burning and minting.
 
-### 1. Depositing Assets
-Connect a Web3 EVM wallet to the source network. Select the asset to bridge, authorize token allowance if prompted, and execute the deposit transaction. Escrowed assets are minted/released on the destination chain in minutes.
+## Fee calculation
+Gas cost in ETH = gas units multiplied by gas price in gwei divided by 1,000,000,000. Add optional approval gas and route fees. The optional margin applies to gas costs. The transfer principal is separate. All parameters are editable; use the transaction gas estimate from the wallet. Actual gas charges use gas consumed and the effective gas price.
 
-### 2. Withdrawing Assets
-Withdrawals require initiating the exit on the target chain, waiting for state proof finalization, and executing a final claim transaction on L1 mainnet.
-
-### 3. Essential Gas Fuel Warning
-Always maintain sufficient native network gas tokens on both source and destination addresses before initiating cross-chain transactions.
-
-## Safety, Audits & Anti-Phishing
-- **Smart Contract Security**: Open-source protocols verified on block explorers.
-- **Anti-Phishing Protocol**: Always verify domain authenticity and check contract approval targets prior to signing Web3 transactions.
-
-## Frequently Asked Questions (FAQ)
-
-### What fees are charged by Optimism Bridge?
-There is zero protocol fee (0.00%). Users pay standard network execution gas.
-
-### Is Optimism Bridge non-custodial?
-Yes, you maintain 100% control of your private keys and assets at all times.
-
-## Internal Sections & App Navigation
-- [What is Bridge Optimism?](#what)
-- [How it works](#how)
-- [Time and fees](#fees)
-- [Safety & Audits](#safety)
-- [Troubleshooting & Fixes](#troubleshoot)
-- [Frequently Asked Questions](#faq)
-- [Optimism Bridge Dashboard](index.html)
-- [Open Optimism Bridge App](dashboard/index.html)
+## Transfer checks
+Confirm the destination network, full recipient address, receiving token contract and approval spender. Keep ETH on Ethereum for the deposit and ETH on Optimism for later transactions.
